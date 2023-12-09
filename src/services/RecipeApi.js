@@ -25,3 +25,12 @@ const { data, error } = await supabase
     return data;
 
 }
+
+export async function createNewRecipe(newRecipe) {
+    
+const { data, error } = await supabase
+.from('RecipeTable')
+.insert([newRecipe])
+.select()
+return data
+}
