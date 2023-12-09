@@ -12,10 +12,7 @@ function Form() {
     })
     function OnSubmitHandler(data) {
         if(!data) return
-        // console.log(data.name.split(','))
-        console.log(data.name)
-        console.log(data.ingredients)
-        console.log(typeof (data))
+       
         
        const  newRecipe = {
             name: data.name,

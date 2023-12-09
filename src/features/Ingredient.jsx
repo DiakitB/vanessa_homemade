@@ -21,7 +21,7 @@ function Ingredient() {
             <img src={image} />
         </div>
         {ingredients.map(ing => <div key={ing.id}>
-            <p>{ing }</p>
+            <p key={ing.id}>{ing }</p>
         </div> )}
 
         
