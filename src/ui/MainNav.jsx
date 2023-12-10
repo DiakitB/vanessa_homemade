@@ -9,6 +9,9 @@ function MainNav() {
             <li>
                 <NavLink to="/bookmark">Bookmark</NavLink>
             </li>
+            <li>
+                <NavLink to="/form">Add a new recipe</NavLink>
+            </li>
         </ul>
     </nav>
 }
