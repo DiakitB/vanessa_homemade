@@ -17,7 +17,7 @@ function Form() {
        const  newRecipe = {
             name: data.name,
             description: data.description,
-            image: data.image,
+            image: data.image[0],
             ingredients: data.ingredients.split(",")
         }
         console.log(newRecipe)
@@ -48,11 +48,11 @@ function Form() {
             </div>
             <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
-                <input type="text" placeholder="image"id="image" {...register("image")}  className="shadow-sm bg-gray-50 border border-gray-300 
+                <input type="file" placeholder="image"id="image" {...register("image")}  className="shadow-sm bg-gray-50 border border-gray-300 
                 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
                 dark:focus:border-blue-500 dark:shadow-sm-light"/>
-                <Button type="small"> add an image</Button>
+              
             </div>
                 <div className="flex gap-4">   
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ingredients</label>
