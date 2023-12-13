@@ -4,6 +4,7 @@ import Ingredient from "./Ingredient";
 import { useDispatch } from "react-redux";
 import { getRecipeObject } from "../reducers/recipeSlice";
 import { Outlet, useNavigate } from "react-router-dom";
+import Button from "../ui/Button";
 
 function BookMark({ recipe }) {
     // const [ingreds, setingreds] = useState("")
@@ -29,8 +30,7 @@ function BookMark({ recipe }) {
         <h2>{name}</h2>
         <img src={image} className="w-60 h-60" />
         
-        <button className="border-4 border-indigo-600 rounded-full py-2 bg-blue-500" onClick={()=>onClikHandler(id)}>Ingredients</button>
-     
+        <Button type="small"  onClick={()=>onClikHandler(id)}>Ingredients</Button>
         
     </li>
 }

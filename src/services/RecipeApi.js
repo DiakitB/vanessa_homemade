@@ -35,7 +35,7 @@ export async function createNewRecipe(newRecipe) {
     // 2) Build the image path
     //  https://iyqiqzanfhqrpsjpjrtc.supabase.co/storage/v1/object/public/recipesPhoto/recipe1.jpg?t=2023-12-11T23%3A36%3A05.656Z//
 
-    const imagePath = `${supabaseUrl}/https://iyqiqzanfhqrpsjpjrtc.supabase.co/storage/v1/object/public/recipesPhoto/${imageName}`
+    const imagePath = `${supabaseUrl}/storage/v1/object/public/recipesPhoto/${imageName}`
     
 const { data, error } = await supabase
 .from('RecipeTable')

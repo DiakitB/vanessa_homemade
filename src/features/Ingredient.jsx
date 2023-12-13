@@ -41,8 +41,9 @@ function Ingredient() {
     return <div>
         <div className="flex gap-5">
 
-        <Button type="primary" onClick={() => navigate("/recipes")}> God back</Button>
-        <Button type="secondary" onClick={testFunction}>Book this recipe</Button>
+        <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
+            <Button type="secondary" onClick={testFunction}>Book this recipe</Button>
+            
         </div>
         <div>
             <h3>{name}</h3>

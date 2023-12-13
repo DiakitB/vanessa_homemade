@@ -4,6 +4,7 @@ import Ingredient from "./Ingredient";
 import { useDispatch } from "react-redux";
 import { getRecipeObject } from "../reducers/recipeSlice";
 import { Outlet, useNavigate } from "react-router-dom";
+import Button from "../ui/Button";
 
 function Recipes({ recipe }) {
     // const [ingreds, setingreds] = useState("")
@@ -26,10 +27,10 @@ function Recipes({ recipe }) {
     // console.log(ingredients)
  
     return <li className="space-y-[5px]">
-        <h2>{name}</h2>
+        <h2 className="phone:bg-black-500">{name}</h2>
         <img src={image} className="w-60 h-60" />
         
-        <button className="border-4 border-indigo-600 rounded-full py-2 bg-blue-500" onClick={()=>onClikHandler(id)}>Ingredients</button>
+       <Button type="small" onClick={()=>onClikHandler(id)}>Ingredients</Button>
      
         
     </li>
