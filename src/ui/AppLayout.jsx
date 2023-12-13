@@ -1,11 +1,10 @@
 import { Outlet } from "react-router-dom"
 import Header from "./Header";
-import Sidebar from "./Sidebar";
+
 import styled from "styled-components"
 const StyledAppLout = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
+ 
   height: 100vh;
 `;
 const Main = styled.main`
@@ -25,7 +24,7 @@ function AppLayout() {
     return (
         <StyledAppLout className="bg-black-300 px-3 py-4">
           <Header />
-          <Sidebar />
+         
     
           <Main>
             <Container>
