@@ -11,7 +11,7 @@ function BookmarkList() {
     
     
 
-    return  <ul className=" sm:grid grid-cols-2 py-3 px-3 gap-3 md: grid-cols-4">
+    return  <ul className="grid justify-center md:grid-cols-4 justify-center">
         
     {recipes?.map(recipe => <BookMark recipe={recipe} key={recipe.id}/>)}
     

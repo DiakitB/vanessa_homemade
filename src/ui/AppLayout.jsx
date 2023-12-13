@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import styled from "styled-components"
 const StyledAppLout = styled.div`
   display: grid;
-  grid-template-columns: 20rem 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr;
   height: 100vh;
 `;
@@ -23,7 +23,7 @@ const Container = styled.div`
 `;
 function AppLayout() {
     return (
-        <StyledAppLout>
+        <StyledAppLout className="bg-black-300 px-3 py-4">
           <Header />
           <Sidebar />
     
