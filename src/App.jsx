@@ -7,6 +7,8 @@ import Ingredient from "./features/Ingredient";
 import Form from "./ui/Form";
 import BookmarkPage from "./pages/BookmarkPage";
 
+
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -29,6 +31,9 @@ function App() {
              <Route path="recipes" element={<RecipesPage/>}/>
             <Route path="ingredient" element={<Ingredient/>}/>
             <Route path="form" element={<Form/>}/>
+            
+           
+            
             
 
 

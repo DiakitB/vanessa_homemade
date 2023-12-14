@@ -28,7 +28,7 @@ function Recipes({ recipe }) {
  
     return <li className="space-y-[5px]">
         <h2 className="phone:bg-black-500">{name}</h2>
-        <img src={image} className="w-60 h-60" />
+        <img src={image} className="w-[450px] h-[450px]" />
         
        <Button type="small" onClick={()=>onClikHandler(id)}>Ingredients</Button>
      

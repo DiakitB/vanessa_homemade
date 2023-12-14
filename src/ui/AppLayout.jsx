@@ -4,7 +4,8 @@ import Header from "./Header";
 import styled from "styled-components"
 const StyledAppLout = styled.div`
   display: grid;
- 
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
   height: 100vh;
 `;
 const Main = styled.main`
