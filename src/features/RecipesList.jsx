@@ -12,7 +12,7 @@ function RecipesList() {
         queryFn: getRecipes
     })
    
-    return <ul className=" grid   px-3  md:grid-cols-4 gap-4 justify-center">
+    return <ul className=" grid h-96   px-3  md:grid-cols-4 gap-4 justify-center">
         
         {recipes?.map(recipe => <Recipes recipe={recipe} key={recipe.id}/>)}
         

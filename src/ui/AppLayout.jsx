@@ -1,21 +1,23 @@
 import { Outlet } from "react-router-dom"
-import Header from "./Header";
+
 
 import styled from "styled-components"
+import Header from "./Header";
 const StyledAppLout = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 100px 1fr;
   gap: 10px;
   height: 100vh;
+
 `;
 const Main = styled.main`
-  /* background-color: blue; */
+  background-color: blue;
   padding: 4rem 4.8rem 6.4rem;
   overflow: scroll;
 `;
 
 const Container = styled.div`
-  max-width: 150rem;
+  max-width: 180rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -24,9 +26,9 @@ const Container = styled.div`
 function AppLayout() {
     return (
         <StyledAppLout className="bg-black-300 px-3 py-4">
-          <Header />
+          
          
-    
+    <Header/>
           <Main>
             <Container>
               <Outlet />

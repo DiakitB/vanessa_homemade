@@ -28,7 +28,17 @@ function Recipes({ recipe }) {
  
     return <li className="space-y-[5px]">
         <h2 className="phone:bg-black-500">{name}</h2>
-        <img src={image} className="w-[450px] h-[450px]" />
+        <div className="rounded overflow-hidden ">
+  <div className="grid - grid-rows-2 h-98">
+    <img
+      className="w-[1500px] h-[200px] object-cover"
+      src={image}
+      loading="lazy"
+      alt={""}
+    />
+
+  </div>
+</div>
         
        <Button type="small" onClick={()=>onClikHandler(id)}>Ingredients</Button>
      
