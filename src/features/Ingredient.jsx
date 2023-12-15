@@ -3,6 +3,15 @@ import Button from "../ui/Button";
 import { useNavigate } from "react-router-dom";
 import { postBookMar } from "../services/BookMarkApi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import styled from "styled-components";
+
+const Image = styled.img`
+    width: 450px;
+    height: 350px;
+    margin-left: auto;
+  margin-right: auto;
+`
+
 
 function Ingredient() {
     const recipe = useSelector(state => state.recipe.recipe)
@@ -47,7 +56,7 @@ function Ingredient() {
         </div>
         <div>
             <h3>{name}</h3>
-            <img src={image} />
+            <Image src={image} />
         </div>
         {ingredients.map(ing => <div key={ing.id}>
             <p key={ing.id}>{ing }</p>

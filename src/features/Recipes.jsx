@@ -5,6 +5,17 @@ import { useDispatch } from "react-redux";
 import { getRecipeObject } from "../reducers/recipeSlice";
 import { Outlet, useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
+import styled from "styled-components";
+
+
+const Image = styled.img`
+    width: 450px;
+    height: 350px;
+    margin-left: auto;
+  margin-right: auto;
+`
+
+
 
 function Recipes({ recipe }) {
     // const [ingreds, setingreds] = useState("")
@@ -26,23 +37,17 @@ function Recipes({ recipe }) {
   
     // console.log(ingredients)
  
-    return <li className="space-y-[5px]">
-        <h2 className="phone:bg-black-500">{name}</h2>
-        <div className="rounded overflow-hidden ">
-  <div className="grid - grid-rows-2 h-98">
-    <img
-      className="w-[1500px] h-[200px] object-cover px-5"
-      src={image}
-      loading="lazy"
-      alt={""}
-    />
+  return <li>
+    <div className="flex flex-col gap-2 ">
+      <h3>{name}</h3>
+      <Image src={image} alt="picture" />
+      <Button type="small" onClick={()=>onClikHandler(id)}>Ingredients</Button>
+    </div>
+    </li>
 
-  </div>
-</div>
-        
-       <Button type="small" onClick={()=>onClikHandler(id)}>Ingredients</Button>
+     
      
         
-    </li>
+    
 }
 export default Recipes;
