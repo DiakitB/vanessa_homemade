@@ -31,7 +31,7 @@ function Recipes({ recipe }) {
         <div className="rounded overflow-hidden ">
   <div className="grid - grid-rows-2 h-98">
     <img
-      className="w-[1500px] h-[200px] object-cover"
+      className="w-[1500px] h-[200px] object-cover px-5"
       src={image}
       loading="lazy"
       alt={""}
