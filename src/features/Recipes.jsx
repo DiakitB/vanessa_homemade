@@ -9,8 +9,8 @@ import styled from "styled-components";
 
 
 const Image = styled.img`
-    width: 450px;
-    height: 350px;
+    width: 350px;
+    height: 300px;
     margin-left: auto;
   margin-right: auto;
 `
@@ -41,7 +41,7 @@ function Recipes({ recipe }) {
     <div className="flex flex-col gap-2 ">
       <h3>{name}</h3>
       <Image src={image} alt="picture" />
-      <Button type="small" onClick={()=>onClikHandler(id)}>Ingredients</Button>
+      <Button type="small" onClick={()=>onClikHandler(id)} >Ingredients</Button>
     </div>
     </li>
 

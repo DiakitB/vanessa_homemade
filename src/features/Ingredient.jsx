@@ -6,8 +6,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import styled from "styled-components";
 
 const Image = styled.img`
-    width: 450px;
-    height: 350px;
+   width: 350px;
+    height: 300px;
     margin-left: auto;
   margin-right: auto;
 `
