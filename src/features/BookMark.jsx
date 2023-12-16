@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 
 const Image = styled.img`
-    width: 350px;
+    width: 418px;
     height: 300px;
     margin-left: auto;
   margin-right: auto;
