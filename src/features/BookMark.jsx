@@ -5,7 +5,15 @@ import { useDispatch } from "react-redux";
 import { getRecipeObject } from "../reducers/recipeSlice";
 import { Outlet, useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
+import styled from "styled-components";
 
+
+const Image = styled.img`
+    width: 350px;
+    height: 300px;
+    margin-left: auto;
+  margin-right: auto;
+`
 function BookMark({ recipe }) {
     // const [ingreds, setingreds] = useState("")
     const [showIngredient, setShowIngredient] = useState(false)
@@ -26,12 +34,12 @@ function BookMark({ recipe }) {
   
     // console.log(ingredients)
  
-    return <li className="space-y-[5px]">
-        <h2>{name}</h2>
-        <img src={image} className="w-60 h-60" />
-        
-        <Button type="small"  onClick={()=>onClikHandler(id)}>Ingredients</Button>
-        
+    return <li>
+    <div className="flex flex-col gap-2 ">
+      <h3>{name}</h3>
+      <Image src={image} alt="picture" />
+      <Button type="small" onClick={()=>onClikHandler(id)} >Ingredients</Button>
+    </div>
     </li>
 }
 export default BookMark;

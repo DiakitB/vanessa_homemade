@@ -11,7 +11,15 @@ const Image = styled.img`
     margin-left: auto;
   margin-right: auto;
 `
-
+const Dive = styled.div`
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+    gap: 15px;
+ 
+`
 
 function Ingredient() {
     const recipe = useSelector(state => state.recipe.recipe)
@@ -47,24 +55,32 @@ function Ingredient() {
         mutate(newRecipe)
     
     }
-    return <div>
-        <div className="flex gap-5">
-
-        <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
-            <Button type="secondary" onClick={testFunction}>Book this recipe</Button>
+    return <Dive>
+        <div>
+            <div className="flex gap-8">
+            <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
+            <Button type="secondary" onClick={testFunction}>Book Mark this recipe</Button>
             
+            </div>
+            <p>{ name}</p>
         </div>
         <div>
-            <h3>{name}</h3>
-            <Image src={image} />
+            <Image src={image}/>
         </div>
-        {ingredients.map(ing => <div key={ing.id}>
-            <p key={ing.id}>{ing }</p>
-        </div> )}
-
+        <div>
+            {ingredients.map(ingredient => <ul>
+                <li>
+                    {ingredient}
+                </li>
+            </ul>)}
+        </div>
         
 
-    </div>
+    </Dive>
 }
 
 export default Ingredient;
+
+{/* <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
+            <Button type="secondary" onClick={testFunction}>Book this recipe</Button> */}
+            

@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 
 const Image = styled.img`
-    width: 350px;
+    width: 418px;
     height: 300px;
     margin-left: auto;
   margin-right: auto;
@@ -39,8 +39,13 @@ function Recipes({ recipe }) {
  
   return <li>
     <div className="flex flex-col gap-2 ">
-      <h3>{name}</h3>
+      <h3 className="px-10 py-5">{name}</h3>
       <Image src={image} alt="picture" />
+      <div className=" flext items-center bg-red-400">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eius
+          nulla consequuntur quisquam cum quos adipisci vitae quae,
+        ?</p>
+      </div>
       <Button type="small" onClick={()=>onClikHandler(id)} >Ingredients</Button>
     </div>
     </li>
