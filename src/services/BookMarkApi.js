@@ -7,7 +7,7 @@ export async function postBookMar(recipe) {
     .from('BookMark')
     .insert([recipe])
     .select()
-    console.log(data);
+   
     return data
 
 }

@@ -6,6 +6,8 @@ import { getRecipeObject } from "../reducers/recipeSlice";
 import { Outlet, useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 import styled from "styled-components";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 
 
 const Image = styled.img`
@@ -32,11 +34,13 @@ function BookMark({ recipe }) {
 
     }
   
-    // console.log(ingredients)
- 
-    return <li>
+  // console.log(ingredients)
+  
+  return <li>
+      
     <div className="flex flex-col gap-2 ">
-      <h3>{name}</h3>
+        <h3>{name}</h3>
+        <button onClick={()=>mutate(id)}>Delete</button>
       <Image src={image} alt="picture" />
       <Button type="small" onClick={()=>onClikHandler(id)} >Ingredients</Button>
     </div>
