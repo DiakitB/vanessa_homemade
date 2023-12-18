@@ -18,7 +18,7 @@ function Form() {
     function OnSubmitHandler(data) {
         if(!data) return
        
-        
+        console.log(data)
        const  newRecipe = {
             name: data.name,
             description: data.description,
@@ -68,10 +68,10 @@ function Form() {
                 
              </div>
         </div>
-        <div className="py-5">
+        
             
         <Button type="small" onClick={()=>navigate('/recipes')}>Add recipe</Button>
-        </div>
+        
     </form>
 }
 

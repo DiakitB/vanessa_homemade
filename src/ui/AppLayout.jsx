@@ -8,7 +8,8 @@ const StyledAppLout = styled.div`
   grid-template-rows: 100px 1fr;
   gap: 10px;
   height: 100vh;
-
+overflow: auto;
+overflow-x:hidden;
 `;
 const Main = styled.main`
  
