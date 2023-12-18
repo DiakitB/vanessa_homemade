@@ -49,7 +49,7 @@ function Recipes({ recipe }) {
     // console.log(ingredients)
  
   return <li>
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 pr-10">
       <h3 className="px- py-3">{name}</h3>
       <div>
 
