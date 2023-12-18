@@ -62,14 +62,17 @@ function Ingredient() {
             <Button type="secondary" onClick={testFunction}>Book Mark this recipe</Button>
             
             </div>
-            <p>{ name}</p>
+            <div>
+
+            <p className="py-10 leading-normal  font-semibold ">{ name}</p>
+            </div>
         </div>
         <div>
             <Image src={image}/>
         </div>
         <div>
             {ingredients.map(ingredient => <ul>
-                <li>
+                <li className="list-disc tracking-tight">
                     {ingredient}
                 </li>
             </ul>)}

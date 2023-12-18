@@ -49,18 +49,21 @@ function Recipes({ recipe }) {
     // console.log(ingredients)
  
   return <li>
-    <div className="flex flex-col gap-5 pr-10">
-      <h3 className="px- py-3">{name}</h3>
+    <div className="flex flex-col gap-5 justify-center">
+      <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
       <div>
 
       <Image src={image} alt="picture" />
       </div>
-      <div className=" flext items-center bg-red-400">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eius
+      <div>
+        <p className="leading-normal  font-semibold ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eius
           nulla consequuntur quisquam cum quos adipisci vitae quae,
         ?</p>
       </div>
+      <div>
+
       <Button type="small" onClick={()=>onClikHandler(id)} >Ingredients</Button>
+      </div>
     </div>
     </li>
 

@@ -36,7 +36,7 @@ function Form() {
         
     }
     return <form onSubmit={handleSubmit(OnSubmitHandler)}>
-        <div className="grid grid-cols-1 bg-blue-500 w-full">
+        <div className="grid grid-cols-1 bg-blue-500 w-full overscroll-x-none overflow-auto scrollbar-hide ">
             <div className="input w-full">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Recipe Name</label>
                 <input type="text" placeholder="type name" id="name" {...register("name")} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900
@@ -68,7 +68,10 @@ function Form() {
                 
              </div>
         </div>
+        <div className="py-5">
+            
         <Button type="small" onClick={()=>navigate('/recipes')}>Add recipe</Button>
+        </div>
     </form>
 }
 
