@@ -14,7 +14,18 @@ const Image = styled.img`
     margin-left: auto;
   margin-right: auto;
 `
+const Container = styled.div`
+   height: 200px;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #444;
 
+    overflow: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+`
 
 
 function Recipes({ recipe }) {
@@ -38,8 +49,8 @@ function Recipes({ recipe }) {
     // console.log(ingredients)
  
   return <li>
-    <div className="flex flex-col gap-2 ">
-      <h3 className="px-10 py-5">{name}</h3>
+    <div className="flex flex-col gap-5">
+      <h3 className="px- py-3">{name}</h3>
       <div>
 
       <Image src={image} alt="picture" />

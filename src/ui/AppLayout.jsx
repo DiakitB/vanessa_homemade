@@ -13,7 +13,7 @@ const StyledAppLout = styled.div`
 const Main = styled.main`
  
   padding: 4rem 4.8rem 6.4rem;
-  overflow: scroll;
+  /* overflow: scroll; */
 `;
 
 const Container = styled.div`
