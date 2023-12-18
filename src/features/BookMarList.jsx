@@ -11,7 +11,7 @@ function BookmarkList() {
     
     
 
-    return  <ul  className="grid h-[1200px]  md:grid-cols-4 gap-3 justify-items-center ">
+    return  <ul className="grid h-[1200px] overscroll-x-none overflow-auto scrollbar-hide place-items-center md:grid-cols-4 gap-3 w-screem">>
         
     {recipes?.map(recipe => <BookMark recipe={recipe} key={recipe.id}/>)}
     
