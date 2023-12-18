@@ -20,3 +20,20 @@ let { data, error } = await supabase
 
 return data
 }
+
+
+export async function deleteBookMark(id) {
+    console.log(id)
+  
+    const {data,  error } = await supabase
+    .from('BookMark')
+    .delete()
+        .eq('id', id)
+        if (error) {
+          console.error(error);
+          throw new Error("Recipe  couldnt be deleted");
+      }
+      
+        return data;
+    
+    }

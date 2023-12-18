@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Ingredient from "./features/Ingredient";
 import Form from "./ui/Form";
 import BookmarkPage from "./pages/BookmarkPage";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 
 
@@ -21,7 +22,7 @@ function App() {
 
   return (<div>
     <QueryClientProvider client={queryClient}>
-
+      <ReactQueryDevtools initialIsOpen={false}/>
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />} >

@@ -2,13 +2,18 @@ import { useForm } from "react-hook-form";
 import Button from "./Button";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createNewRecipe } from "../services/RecipeApi";
+import { useNavigate } from "react-router-dom";
 
 function Form() {
     const { register, handleSubmit, reset } = useForm();
     const queryClient = useQueryClient()
+    const navigate = useNavigate()
     const { mutate, isloading, } = useMutation({
         mutationFn: createNewRecipe,
-        onSuccess: ()=> alert("recipe uloaded successfully")
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["bookmark"] })
+            reset();
+        }
     })
     function OnSubmitHandler(data) {
         if(!data) return
@@ -63,7 +68,7 @@ function Form() {
                 
              </div>
         </div>
-        <Button type="small">Add recipe</Button>
+        <Button type="small" onClick={()=>navigate('/recipes')}>Add recipe</Button>
     </form>
 }
 

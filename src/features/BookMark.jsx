@@ -7,6 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 import styled from "styled-components";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteBookMark } from "../services/BookMarkApi";
 
 
 
@@ -32,15 +33,29 @@ function BookMark({ recipe }) {
         dispatch(getRecipeObject(data))
         navigate("/ingredient")
 
-    }
+  }
+  const queryClient = useQueryClient();
   
-  // console.log(ingredients)
+  const { isLoading: isDeleting, mutate } = useMutation({
+    mutationFn: deleteBookMark,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bookmark'] })
+    
+   }
+   
+  });
+
+//   onSuccess: async () => {
+//     await queryClient.invalidateQueries("getComments");
+//   },
+// });
   
   return <li>
       
     <div className="flex flex-col gap-2 ">
+      <button onClick={()=>mutate(id)}>Delete</button>
         <h3>{name}</h3>
-        <button onClick={()=>mutate(id)}>Delete</button>
+    
       <Image src={image} alt="picture" />
       <Button type="small" onClick={()=>onClikHandler(id)} >Ingredients</Button>
     </div>
