@@ -28,7 +28,7 @@ function Form() {
         console.log(newRecipe)
 
         mutate(newRecipe)
-       
+       navigate('/recipes')
         
         
        
@@ -69,8 +69,9 @@ function Form() {
              </div>
         </div>
         
-            
-        <Button type="small" onClick={()=>navigate('/recipes')}>Add recipe</Button>
+        <div className="py-4">
+        <Button type="small" >Add recipe</Button>
+        </div>  
         
     </form>
 }

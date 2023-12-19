@@ -1,6 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import { getBookMark } from "../services/BookMarkApi";
 import BookMark from "./BookMark";
+import styled from "styled-components";
+
+const Container = styled.div`
+   height: 1200px;
+  
+   
+
+   align-items: center;
+    display: grid;
+
+    gap: 5px;
+`
 
 function BookmarkList() {
     
@@ -11,10 +23,10 @@ function BookmarkList() {
     
     
 
-    return  <ul className="grid h-[1200px] overscroll-x-none overflow-auto scrollbar-hide place-items-center md:grid-cols-4 gap-3 w-screem">
+    return  <Container className=" md:grid-cols-4 gap-3 w-screem">
         
     {recipes?.map(recipe => <BookMark recipe={recipe} key={recipe.id}/>)}
     
-</ul>
+</Container>
 }
 export default BookmarkList
