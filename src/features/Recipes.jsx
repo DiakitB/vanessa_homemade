@@ -9,10 +9,9 @@ import styled from "styled-components";
 
 
 const Image = styled.img`
-    width: 418px;
-    height: 300px;
-    margin-left: auto;
-  margin-right: auto;
+ width: 330px;
+ height: 220px;
+  
 `
 const Container = styled.div`
    height: 200px;
@@ -51,11 +50,11 @@ function Recipes({ recipe }) {
   return <li>
     <div className="flex flex-col gap-5 justify-center">
       <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
-      <div>
+      <div className="pr-20 ">
 
       <Image src={image} alt="picture" />
       </div>
-      <div>
+      <div  className="pr-20">
         <p className="leading-normal  font-semibold ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eius
           nulla consequuntur quisquam cum quos adipisci vitae quae,
         ?</p>

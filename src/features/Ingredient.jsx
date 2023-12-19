@@ -6,10 +6,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import styled from "styled-components";
 
 const Image = styled.img`
-    width: 418px;
-    height: 300px;
-    margin-left: auto;
-  margin-right: auto;
+     width: 330px;
+ height: 220px;
 `
 const Dive = styled.div`
     display: grid;
@@ -46,12 +44,12 @@ function Ingredient() {
     console.log(ingredients)
     async function testFunction() {
         const  newRecipe = {
-            name: data.name,
-            description: data.description,
+            name: data?.name,
+            description: data?.description,
             image: data.image,
-            ingredients: data.ingredients
+            ingredients: data?.ingredients
         }
-        console.log(newRecipe)
+       if(!newRecipe) return
         mutate(newRecipe)
     
     }
@@ -67,11 +65,11 @@ function Ingredient() {
             <p className="py-10 leading-normal  font-semibold ">{ name}</p>
             </div>
         </div>
-        <div>
+        <div className="pr-20">
             <Image src={image}/>
         </div>
-        <div>
-            {ingredients.map(ingredient => <ul>
+        <div className="pl-5">
+            {ingredients?.map(ingredient => <ul>
                 <li className="list-disc tracking-tight">
                     {ingredient}
                 </li>
