@@ -38,7 +38,7 @@ function Ingredient() {
     if (!recipe) return
     
     const data = recipe[0]
-    console.log(data)
+    if (!data) return;
     const { name, image, ingredients, description } = data
     console.log(name)
     console.log(ingredients)

@@ -50,7 +50,7 @@ function Recipes({ recipe }) {
   return <li>
     <div className="flex flex-col gap-5 justify-center">
       <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
-      <div className="pr-20 ">
+      <div className="pr-25 ">
 
       <Image src={image} alt="picture" />
       </div>

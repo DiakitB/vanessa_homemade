@@ -37,3 +37,22 @@ export async function deleteBookMark(id) {
         return data;
     
     }
+
+
+// export async function getBookMarkIngredient(id) {
+        
+
+    
+// const { data , error } = await supabase
+
+
+// .from('BookMark')
+// .select('ingredients', id)
+//   console.log(data)
+//     return data;
+//     }
+
+    
+// let { data: BookMark, error } = await supabase
+// .from('BookMark')
+// .select('ingredients')

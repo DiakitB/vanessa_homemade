@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     recipe: {},
-    bookMarks: []
+    bookMark: {}
 }
 
 const recipeSlice = createSlice({
@@ -12,7 +12,12 @@ const recipeSlice = createSlice({
         getRecipeObject(state, action) {
             state.recipe = action.payload
             console.log(action.payload)
+        },
+        getBookMarkObject(state, action) {
+            state.bookMark = action.payload
+            console.log(action.payload)
         }
+       
         
     }
 })

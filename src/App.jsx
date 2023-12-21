@@ -7,6 +7,7 @@ import Ingredient from "./features/Ingredient";
 import Form from "./ui/Form";
 import BookmarkPage from "./pages/BookmarkPage";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import BookMarkIngredient from "./features/BookMarkIngredient";
 
 
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="bookmark" element={<BookmarkPage />} />
              <Route path="recipes" element={<RecipesPage/>}/>
             <Route path="ingredient" element={<Ingredient/>}/>
+            <Route path="bookmarkingredient" element={<BookMarkIngredient/>}/>
             <Route path="form" element={<Form/>}/>
             
            

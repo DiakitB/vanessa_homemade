@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { getRecipeIngredient } from "../services/RecipeApi";
-import Ingredient from "./Ingredient";
+import { useEffect, useState } from "react";
+
 import { useDispatch } from "react-redux";
-import { getRecipeObject } from "../reducers/recipeSlice";
-import { Outlet, useNavigate } from "react-router-dom";
+
+import {  useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 import styled from "styled-components";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteBookMark } from "../services/BookMarkApi";
+import { getBookMarkObject } from "../reducers/bookMarkSlice";
 
 
 
@@ -16,22 +16,24 @@ const Image = styled.img`
  height: 220px;
 `
 function BookMark({ recipe }) {
-    // const [ingreds, setingreds] = useState("")
+    const [ingreds, setingreds] = useState("")
     const [showIngredient, setShowIngredient] = useState(false)
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    if (!recipe) return
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+if (!recipe) return
 
-    const { name, description, image,  id,ingredients } = recipe
-    // console.log(name, image, id)
-    async function onClikHandler(id) {
-        const data = await getRecipeIngredient(id)
-        if(!data)  return
-        console.log(data)
-        dispatch(getRecipeObject(data))
-        navigate("/ingredient")
+const { name, description, image,  id,ingredients } = recipe
+// console.log(name, image, id)
+async function onClikHandler(id) {
+  console.log(recipe)
+  console.log(typeof (recipe))
+  dispatch(getBookMarkObject(recipe))
+navigate("/bookmarkingredient")
+  
 
-  }
+}
+
+
   const queryClient = useQueryClient();
   
   const { isLoading: isDeleting, mutate } = useMutation({
@@ -46,8 +48,16 @@ function BookMark({ recipe }) {
 //   onSuccess: async () => {
 //     await queryClient.invalidateQueries("getComments");
 //   },
-// });
+  // });
   
+
+//   const fecher =  useFetcher()
+//     useEffect(function () {
+//     if(!fecher.data && fecher.state == "idle")
+// fecher.load('/ingredient')
+//   }, [fecher])
+  
+// console.log(fecher.data)
   return <li>
       
     <div className="flex flex-col gap-5 justify-center ">
@@ -60,7 +70,7 @@ function BookMark({ recipe }) {
       </div>
       <div className="flex space-x-4">
 
-        <Button type="small" onClick={() => onClikHandler(id)} >Ingredients</Button>
+        <Button type="small" onClick={onClikHandler} >Ingredients</Button>
         <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500
      to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 
      dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium
