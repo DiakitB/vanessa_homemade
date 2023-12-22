@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery} from "@tanstack/react-query";
 import { getBookMark } from "../services/BookMarkApi";
 import BookMark from "./BookMark";
 import styled from "styled-components";
@@ -17,10 +17,12 @@ const Container = styled.div`
 `
 
 function BookmarkList() {
-    
+ 
     const { data:recipes, isLoading, error} = useQuery({
         queryKey: ["bookmark"],
         queryFn: getBookMark
+        
+
     })
     
     const navigate = useNavigate()

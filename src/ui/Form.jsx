@@ -28,8 +28,9 @@ function Form() {
         console.log(newRecipe)
 
         mutate(newRecipe)
+      
        navigate('/recipes')
-        
+       
         
        
 

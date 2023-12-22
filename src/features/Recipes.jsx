@@ -9,22 +9,11 @@ import styled from "styled-components";
 
 
 const Image = styled.img`
- width: 330px;
+ width: 80%;
  height: 220px;
   
 `
-const Container = styled.div`
-   height: 200px;
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #444;
 
-    overflow: auto;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction:column;
-    gap: 5px;
-`
 
 
 function Recipes({ recipe }) {
@@ -47,8 +36,8 @@ function Recipes({ recipe }) {
   
     // console.log(ingredients)
  
-  return <li>
-    <div className="flex flex-col gap-5 justify-center">
+  return <li className="bg-blue-400">
+    <div className="flex flex-col gap-5 justify-center bg-red-400">
       <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
       <div className="pr-25 ">
 
