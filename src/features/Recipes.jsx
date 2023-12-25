@@ -9,12 +9,16 @@ import styled from "styled-components";
 
 
 const Image = styled.img`
- width: 80%;
+ width: 100%;
  height: 220px;
   
 `
 
-
+const DiveRecipe = styled.div`
+  
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+`
 
 function Recipes({ recipe }) {
     // const [ingreds, setingreds] = useState("")
@@ -37,7 +41,7 @@ function Recipes({ recipe }) {
     // console.log(ingredients)
  
   return <li className="bg-blue-400">
-    <div className="flex flex-col gap-5 justify-center bg-red-400">
+    <div className="flex flex-col  justify-center gap-2 px-10">
       <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
       <div className="pr-25 ">
 

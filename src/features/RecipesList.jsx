@@ -2,15 +2,12 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getRecipes } from "../services/RecipeApi";
 import Recipes from "./Recipes";
 import styled from "styled-components";
-const Container = styled.div`
+const Container = styled.ul`
    height: 1200px;
-  
-   justify-content: center;
-   align-items: center;
-
- 
+  width: 100vw;
     display: grid;
-
+    justify-items: center;
+  
     gap: 5px;
 `
 

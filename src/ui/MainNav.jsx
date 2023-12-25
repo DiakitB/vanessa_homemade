@@ -58,19 +58,25 @@ const StyledLink = styled(NavLink)`
 function MainNav() {
   return (
     <nav>
-      <ul className='flex flex-col g-0 md:flex-row'>
-        <li className="basis-1/4">
+      <ul className='flex flex-col items-center gap-2 md:flex-row items-center'>
+        <li className='inline-block text-sm bg-blue-500 font-semibold uppercase tracking-wide text-stone-800 transition-colors duration-300 hover:bg-yellow-300
+         focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2
+          disabled:cursor-not-allowed  px-12 py-2 md:px-5 md:py-2.5 text-xs'>
           <StyledLink to="/recipes">
             Recipes
           </StyledLink>
         </li>
-        <li  className="basis-1/4">
+        <li   className='inline-block text-sm bg-blue-500 font-semibold uppercase tracking-wide text-stone-800 transition-colors duration-300 hover:bg-yellow-300
+         focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2
+          disabled:cursor-not-allowed  px-9 py-2 md:px-5 md:py-2.5 text-xs'>
           <StyledLink to="/bookmark">
           
            BookMark
           </StyledLink>
         </li>
-        <li  className="basis-1/4">
+        <li  className='inline-block text-sm bg-blue-500 font-semibold uppercase tracking-wide text-stone-800 transition-colors duration-300 hover:bg-yellow-300
+         focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2
+          disabled:cursor-not-allowed  px-9 py-2 md:px-5 md:py-2.5 text-xs'> 
           <StyledLink to="/form">
             Add  Recipe
           </StyledLink>

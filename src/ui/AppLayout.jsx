@@ -18,8 +18,8 @@ grid-template-rows: 10pxfr 1fr;
 gap: 20px
 `
 const Main = styled.main`
- 
-  padding: 4rem 4.8rem 6.4rem;
+ width:100vw;
+  padding: auto;
   overflow: scroll;
 `;
 
