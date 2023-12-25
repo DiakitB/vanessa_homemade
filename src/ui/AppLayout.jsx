@@ -11,6 +11,12 @@ const StyledAppLout = styled.div`
 overflow: auto;
 overflow-x:hidden;
 `;
+const DiveBox = styled.div`
+display: grid;
+height: 800px;
+grid-template-rows: 10pxfr 1fr;
+gap: 20px
+`
 const Main = styled.main`
  
   padding: 4rem 4.8rem 6.4rem;
@@ -26,7 +32,7 @@ const Container = styled.div`
 `;
 function AppLayout() {
     return (
-        <StyledAppLout className="bg-black-300 px-3 py-4">
+        <DiveBox className="bg-black-300 px-3 py-4">
           
          
     <Header/>
@@ -35,7 +41,7 @@ function AppLayout() {
               <Outlet />
             </Container>
           </Main>
-        </StyledAppLout>
+        </DiveBox>
       );
 }
 export default AppLayout

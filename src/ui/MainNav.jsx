@@ -7,13 +7,14 @@ const StyleLink = styled(NavLink)`
     background-color: blue;
 `;
 
-const NavList = styled.ul`
-  display: flex;
-  gap: 0.4rem;
-  align-items: start;
-  justify-content: start;
+// const NavList = styled.ul`
+//   display: flex;
   
-`;
+//   align-items: start;
+//   justify-content: start;
+//   flex-direction:column;
+  
+// `;
 
 const StyledLink = styled(NavLink)`
   &:link,
@@ -57,26 +58,26 @@ const StyledLink = styled(NavLink)`
 function MainNav() {
   return (
     <nav>
-      <NavList>
-        <li>
+      <ul className='flex flex-col g-0 md:flex-row'>
+        <li className="basis-1/4">
           <StyledLink to="/recipes">
             Recipes
           </StyledLink>
         </li>
-        <li>
+        <li  className="basis-1/4">
           <StyledLink to="/bookmark">
           
            BookMark
           </StyledLink>
         </li>
-        <li>
+        <li  className="basis-1/4">
           <StyledLink to="/form">
             Add  Recipe
           </StyledLink>
         </li>
 
         
-      </NavList>
+      </ul>
     </nav>
   );
 }
