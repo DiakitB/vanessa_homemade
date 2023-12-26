@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 
 const Image = styled.img`
- width: 100%;
+width: 400px;
  height: 220px;
   
 `
@@ -48,9 +48,7 @@ function Recipes({ recipe }) {
       <Image src={image} alt="picture" />
       </div>
       <div  className="pr-20">
-        <p className="leading-normal  font-semibold ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eius
-          nulla consequuntur quisquam cum quos adipisci vitae quae,
-        ?</p>
+        <p className="leading-normal  font-semibold ">{description}</p>
       </div>
       <div>
 

@@ -54,7 +54,7 @@ function Ingredient() {
     
     }
     return<div className="flex flex-col  justify-center gap-2 px-8">
-    <div className="space-x-4 px-10">
+    <div className="space-x-2">
     <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
             <Button type="secondary" onClick={testFunction}>Book Mark </Button>  
     </div>
