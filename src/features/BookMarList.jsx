@@ -26,9 +26,9 @@ function BookmarkList() {
     const navigate = useNavigate()
 
     return  <Container className=" md:grid-cols-4 gap-3 ">
-        <div>
-            <Button onClick={()=>navigate("/recipes")}>Go Back</Button>
-        </div>
+        
+          
+        
     {recipes?.map(recipe => <BookMark recipe={recipe} key={recipe.id}/>)}
     
 </Container>

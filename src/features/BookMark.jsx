@@ -22,8 +22,7 @@ const Image = styled.img`
 
 
 function BookMark({ recipe }) {
-    const [ingreds, setingreds] = useState("")
-    const [showIngredient, setShowIngredient] = useState(false)
+  
   const dispatch = useDispatch()
   const navigate = useNavigate()
 if (!recipe) return
