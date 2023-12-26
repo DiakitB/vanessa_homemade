@@ -29,14 +29,14 @@ function Form() {
 
         mutate(newRecipe)
       
-       navigate('/recipes')
+       navigate('/success')
        
         
        
 
         
     }
-    return <form onSubmit={handleSubmit(OnSubmitHandler)} className="bg-red-400">
+    return <form onSubmit={handleSubmit(OnSubmitHandler)} >
         <div className="grid grid-cols-1 pl-2 bg-blue-500 w-full overscroll-x-none overflow-auto scrollbar-hide py-4 px-5 ">
             <div className="input w-full">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Recipe Name</label>

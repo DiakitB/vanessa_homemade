@@ -64,7 +64,7 @@ navigate("/bookmarkingredient")
 //   }, [fecher])
   
 // console.log(fecher.data)
-  return <li className="bg-blue-400">
+  return <li >
   <div className="flex flex-col  justify-center gap-2 px-10">
     <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
     <div className="pr-25 ">
@@ -76,7 +76,7 @@ navigate("/bookmarkingredient")
         nulla consequuntur quisquam cum quos adipisci vitae quae,
       ?</p>
     </div>
-    <div className="space-x-3">
+    <div className="flex justify-between">
 
         <Button type="small" onClick={() => onClikHandler(id)} >Ingredients</Button>
           <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500

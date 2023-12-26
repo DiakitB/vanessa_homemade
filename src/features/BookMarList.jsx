@@ -10,7 +10,7 @@ const Container = styled.ul`
   width: 100vw;
     display: grid;
     justify-items: center;
-  background-color: yellow;
+
     gap: 5px;
 `
 
