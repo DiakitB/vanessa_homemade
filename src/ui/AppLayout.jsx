@@ -3,18 +3,18 @@ import { Outlet } from "react-router-dom"
 
 import styled from "styled-components"
 import Header from "./Header";
-const StyledAppLout = styled.div`
-  display: grid;
-  grid-template-rows: 80px 1fr;
-  gap: 10px;
-  height: 100vh;
-overflow: auto;
-overflow-x:hidden;
-`;
+// const StyledAppLout = styled.div`
+//   display: grid;
+//   grid-template-rows: 100px 1fr;
+//   gap: 10px;
+//   height: 100vh;
+// overflow: auto;
+// overflow-x:hidden;
+// `;
 const DiveBox = styled.div`
 display: grid;
 height: 800px;
-grid-template-rows: 10pxfr 1fr;
+grid-template-rows: 1fr 15fr;
 gap: 20px
 `
 const Main = styled.main`

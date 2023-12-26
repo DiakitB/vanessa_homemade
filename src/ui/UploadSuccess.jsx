@@ -4,11 +4,17 @@ import Button from "./Button";
 function UploadSuccess() {
 
     const navigate = useNavigate()
-    return<div className="space-y-4">
-        <p className="text-sm uppercase">Your recipe is being uploaded<br />
-            <span>
-            Go back to our recipe list your recipe my be there already if not don't worry it will apear next time your log in</span></p>
-        <Button type="small" onClick={()=> navigate("/recipes")}>Recipes list</Button>
-        
+    return<nav  className="relative flex w-full flex-wrap items-center justify-between bg-[#FBFBFB] py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4">
+    <div className="flex w-full flex-wrap items-center justify-between px-3">
+      <div className="ml-2">
+        <a className="text-xl text-neutral-800 dark:text-neutral-200" href="#"
+          >Navbar</a
+        >
+      </div>
     </div>
-} export default UploadSuccess;
+  </nav>
+  
+  
+ 
+}
+export default UploadSuccess;

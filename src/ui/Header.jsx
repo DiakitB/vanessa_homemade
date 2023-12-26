@@ -17,9 +17,9 @@ import MainNav from './MainNav';
 
 function Header() {
   return (
-    <div className=''>
+    <header className=' relative shadow-lg  bg-pink-300 '>
      <MainNav/>
-    </div>
+    </header>
   );
 }
 
