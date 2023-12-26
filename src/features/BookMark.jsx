@@ -12,9 +12,15 @@ import { getBookMarkObject } from "../reducers/bookMarkSlice";
 
 
 const Image = styled.img`
-  width: 330px;
+ width: 400px;
  height: 220px;
+ 
+  
 `
+
+
+
+
 function BookMark({ recipe }) {
     const [ingreds, setingreds] = useState("")
     const [showIngredient, setShowIngredient] = useState(false)
@@ -58,39 +64,41 @@ navigate("/bookmarkingredient")
 //   }, [fecher])
   
 // console.log(fecher.data)
-  return <li>
-      
-    <div className="flex flex-col gap-5 justify-center ">
-      
-         <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
-    
-      <div className="pr-20 ">
+  return <li className="bg-blue-400">
+  <div className="flex flex-col  justify-center gap-2 px-10">
+    <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
+    <div className="pr-25 ">
 
-      <Image src={image} alt="picture" />
-      </div>
-      <div className="flex space-x-4">
+    <Image src={image} alt="picture" />
+    </div>
+    <div  className="pr-20">
+      <p className="leading-normal  font-semibold ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eius
+        nulla consequuntur quisquam cum quos adipisci vitae quae,
+      ?</p>
+    </div>
+    <div className="space-x-3">
 
-        <Button type="small" onClick={onClikHandler} >Ingredients</Button>
-        <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500
+        <Button type="small" onClick={() => onClikHandler(id)} >Ingredients</Button>
+          <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500
      to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 
      dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium
      rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={()=>mutate(id)}>Delete</button>
-      </div>
     </div>
-    </li>
+  </div>
+  </li>
 }
 export default BookMark;
 
 
 
-{/* <li>
-    <div className="flex flex-col gap-5 justify-center">
+{/* <li className="bg-blue-400">
+    <div className="flex flex-col  justify-center gap-2 px-10">
       <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
-      <div>
+      <div className="pr-25 ">
 
       <Image src={image} alt="picture" />
       </div>
-      <div>
+      <div  className="pr-20">
         <p className="leading-normal  font-semibold ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eius
           nulla consequuntur quisquam cum quos adipisci vitae quae,
         ?</p>
@@ -101,3 +109,8 @@ export default BookMark;
       </div>
     </div>
     </li> */}
+
+        {/* <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500
+     to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 
+     dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium
+     rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={()=>mutate(id)}>Delete</button> */}

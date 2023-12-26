@@ -5,7 +5,7 @@ import styled from "styled-components"
 import Header from "./Header";
 const StyledAppLout = styled.div`
   display: grid;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 80px 1fr;
   gap: 10px;
   height: 100vh;
 overflow: auto;

@@ -53,34 +53,31 @@ function Ingredient() {
         mutate(newRecipe)
     
     }
-    return <Dive>
-        <div>
-            <div className="flex gap-8">
-            <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
-            <Button type="secondary" onClick={testFunction}>Book Mark this recipe</Button>
-            
-            </div>
-            <div>
+    return<div className="flex flex-col  justify-center gap-2 px-8">
+    <div className="space-x-4 px-10">
+    <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
+            <Button type="secondary" onClick={testFunction}>Book Mark </Button>  
+    </div>
+    <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
+    <div className="pr-25 ">
 
-            <p className="py-10 leading-normal  font-semibold ">{ name}</p>
-            </div>
-        </div>
-        <div className="pr-20">
-            <Image src={image}/>
-        </div>
-        <div className="pl-5">
-            {ingredients?.map(ingredient => <ul>
-                <li className="list-disc tracking-tight">
+    <Image src={image} alt="picture" />
+    </div>
+   
+    <div className="">
+            {ingredients?.map((ingredient, index) => 
+                <h4 className="list-disc tracking-tight"><span>{ index +1}-</span>
                     {ingredient}
-                </li>
-            </ul>)}
+                </h4>)}
         </div>
-        
+  </div>
 
-    </Dive>
+   
 }
 
 export default Ingredient;
+
+
 
 {/* <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
             <Button type="secondary" onClick={testFunction}>Book this recipe</Button> */}

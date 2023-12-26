@@ -5,14 +5,12 @@ import styled from "styled-components";
 import Button from "../ui/Button";
 import { useNavigate } from "react-router-dom";
 
-const Container = styled.div`
-   height: 1200px;
-  
-   
-
-   align-items: center;
+const Container = styled.ul`
+    height: 1200px;
+  width: 100vw;
     display: grid;
-
+    justify-items: center;
+  background-color: yellow;
     gap: 5px;
 `
 
@@ -27,7 +25,7 @@ function BookmarkList() {
     
     const navigate = useNavigate()
 
-    return  <Container className=" md:grid-cols-4 gap-3 w-screem">
+    return  <Container className=" md:grid-cols-4 gap-3 ">
         <div>
             <Button onClick={()=>navigate("/recipes")}>Go Back</Button>
         </div>

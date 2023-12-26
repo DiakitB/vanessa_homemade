@@ -40,8 +40,8 @@ function Recipes({ recipe }) {
   
     // console.log(ingredients)
  
-  return <li className="bg-blue-400">
-    <div className="flex flex-col  justify-center gap-2 px-10">
+  return <li className="">
+    <div className="flex flex-col  justify-center gap-2 px-10 pb-4">
       <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
       <div className="pr-25 ">
 
