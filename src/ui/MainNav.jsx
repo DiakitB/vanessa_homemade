@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import Logo from './Logo';
+import Logo from "./Logo"
 
-
+const Image = styled.img`
+width: 100px;
+ height: 100px;
+  `
 
 const StyledLink = styled(NavLink)`
 
@@ -12,7 +15,10 @@ const StyledLink = styled(NavLink)`
 function MainNav() {
   return (
     <nav  >
-      <ul  className='flex  justify-evenly text-sm md:flex-row gap-4'>
+      <ul className='flex  justify-start items-center text-sm md:flex-row gap-4'>
+        <li>
+          <Image src='public/logo.webp'/>
+       </li>
         <li  className='shadow-lg shadow-indigo-500/40 '>
           <StyledLink to="/recipes">
             Recipes

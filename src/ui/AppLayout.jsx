@@ -34,7 +34,7 @@ const Container = styled.div`
 `;
 function AppLayout() {
     return (
-        <DiveBox className="bg-black-300 px-3 py-4">
+        <DiveBox className="bg-black-300 ">
           
          
     <Header/>
