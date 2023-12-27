@@ -12,7 +12,7 @@ const StyledLink = styled(NavLink)`
 function MainNav() {
   return (
     <nav  >
-      <ul  className='flex flex-col items-center md:flex-row gap-4'>
+      <ul  className='flex  justify-evenly text-sm md:flex-row gap-4'>
         <li  className='shadow-lg shadow-indigo-500/40 '>
           <StyledLink to="/recipes">
             Recipes
@@ -29,6 +29,7 @@ function MainNav() {
             Add  Recipe
           </StyledLink>
         </li>
+     
 
         
       </ul>
