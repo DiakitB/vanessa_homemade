@@ -14,13 +14,15 @@ import Header from "./Header";
 const DiveBox = styled.div`
 display: grid;
 height: 800px;
-grid-template-rows: 1fr 15fr;
-gap: 20px
+grid-template-rows: 1fr 10fr;
+gap: 20px;
+
 `
 const Main = styled.main`
  width:100vw;
   padding: auto;
   overflow: scroll;
+  height:100vh;
 `;
 
 const Container = styled.div`

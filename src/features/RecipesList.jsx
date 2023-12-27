@@ -7,7 +7,7 @@ const Container = styled.ul`
   width: 100vw;
     display: grid;
     justify-items: center;
-  
+  direction: ltr;
     gap: 5px;
 `
 
