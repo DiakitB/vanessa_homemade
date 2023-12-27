@@ -17,7 +17,7 @@ function MainNav() {
     <nav  >
       <ul className='flex  justify-start items-center text-sm md:flex-row gap-4'>
         <li>
-        <img src="public/logo.webp" alt="logo" className="w-[100px] h-[100px] py-2 px-2"/>
+          <Image src='public/cooking.jpg' alt='logo' />
        </li>
         <li  className='shadow-lg shadow-indigo-500/40 '>
           <StyledLink to="/recipes">
