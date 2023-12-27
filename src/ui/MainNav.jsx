@@ -17,7 +17,7 @@ function MainNav() {
     <nav  >
       <ul className='flex  justify-start items-center text-sm md:flex-row gap-4'>
         <li>
-          <Image src='public/cooking.jpg' alt='logo' />
+          <Image src="/cooking.jpg" alt='logo' />
        </li>
         <li  className='shadow-lg shadow-indigo-500/40 '>
           <StyledLink to="/recipes">
