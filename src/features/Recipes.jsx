@@ -6,6 +6,7 @@ import { getRecipeObject } from "../reducers/recipeSlice";
 import { Outlet, useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 import styled from "styled-components";
+import Form from "../ui/Form";
 
 
 const Image = styled.img`
@@ -21,7 +22,8 @@ const DiveRecipe = styled.div`
 `
 
 function Recipes({ recipe }) {
-    // const [ingreds, setingreds] = useState("")
+  // const [ingreds, setingreds] = useState("")
+  const [showForm, setShowForm]= useState()
     const [showIngredient, setShowIngredient] = useState(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -50,11 +52,12 @@ function Recipes({ recipe }) {
       <div  className="pr-20">
         <p className="leading-normal  font-semibold ">{description}</p>
       </div>
-      <div>
-
+      <div className="space-x-4">
+     <button onClick={()=>setShowForm(show => !show)}>Edit</button>
       <Button type="small" onClick={()=>onClikHandler(id)} >Ingredients</Button>
       </div>
     </div>
+    {showForm && <Form recipeData={recipe} />}
     </li>
 
      

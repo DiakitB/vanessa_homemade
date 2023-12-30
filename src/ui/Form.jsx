@@ -1,17 +1,30 @@
 import { useForm } from "react-hook-form";
 import Button from "./Button";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createNewRecipe } from "../services/RecipeApi";
+import { createEditRecipe } from "../services/RecipeApi";
 import { useNavigate } from "react-router-dom";
 import ErrorPage from "./ErrorMessage";
 
-function Form() {
-    const { register, handleSubmit, reset, formState } = useForm();
+function Form({ recipeData = {} }) {
+    if(recipeData)console.log(recipeData)
+    const { id: editId, ...recivedData } = recipeData
+    console.log(recivedData, editId)
+const isEditingSession = Boolean(editId)
+    const { register, handleSubmit, reset, formState } = useForm({
+        defaultValues: isEditingSession ? recivedData : {}
+    });
     const { errors } = formState
     const queryClient = useQueryClient()
     const navigate = useNavigate()
-    const { mutate, isloading, } = useMutation({
-        mutationFn: createNewRecipe,
+    const { mutate: createRecipe, isloading, } = useMutation({
+        mutationFn: createEditRecipe,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["bookmark"] })
+            reset();
+        }
+    })
+    const { mutate: editRecipe, isloading: isEditing, } = useMutation({
+        mutationFn: ({ newRecipeData, id}) =>createEditRecipe(newRecipeData, id),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["bookmark"] })
             reset();
@@ -19,18 +32,38 @@ function Form() {
     })
     console.log(errors)
     function OnSubmitHandler(data) {
-        if(!data) return
-       
-        console.log(data)
-       const  newRecipe = {
-            name: data.name,
-            description: data.description,
-            image: data.image[0],
-            ingredients: data.ingredients.split(",")
+        if (!data) return
+if(!isEditingSession)
+  {const  newRecipe = {
+          name: data.name,
+           description: data.description,
+       image: data.image[0],
+           ingredients: data.ingredients.split(",")
+}
+createRecipe(newRecipe)
         }
-        console.log(newRecipe)
-
-        mutate(newRecipe)
+       
+        if (isEditingSession) {
+            data.id = editId;
+            const image = typeof data.image === "string" ? data.image : data.image[0]
+            editRecipe({ newRecipeData: { ...data, image } ,id: data.id })
+        }
+            
+        
+     
+        
+        
+    //     const image = typeof data.image === "string" ? data.image : data.image[0]
+    //     console.log(data)
+    //    const  newRecipe = {
+    //         name: data.name,
+    //         description: data.description,
+    //         image: data.image[0],
+    //         ingredients: data.ingredients.split(",")
+    //     }
+    //     console.log(newRecipe)
+     
+        // mutate(newRecipe)
       
        navigate('/success')
        
@@ -67,7 +100,7 @@ function Form() {
             </div>
             <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
-                <input type="file" placeholder="image"id="image" {...register("image", { required: "This field is required" })}  className="shadow-sm bg-gray-50 border border-gray-300 
+                <input type="file" placeholder="image"id="image" {...register("image", { required: isEditingSession? false :"This field is required" })}  className="shadow-sm bg-gray-50 border border-gray-300 
                 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
                 dark:focus:border-blue-500 dark:shadow-sm-light"/>
@@ -85,7 +118,7 @@ function Form() {
         </div>
         
         <div className="py-4">
-        <Button type="small" >Add recipe</Button>
+            <Button type="small" >{isEditingSession ? "Edit Recipe": "Create New Recipe" }</Button>
         </div>  
         
     </form>
