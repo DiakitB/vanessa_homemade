@@ -2,8 +2,7 @@ import { useQuery} from "@tanstack/react-query";
 import { getBookMark } from "../services/BookMarkApi";
 import BookMark from "./BookMark";
 import styled from "styled-components";
-import Button from "../ui/Button";
-import { useNavigate } from "react-router-dom";
+
 
 const Container = styled.ul`
     height: 1200px;
@@ -23,7 +22,7 @@ function BookmarkList() {
 
     })
     
-    const navigate = useNavigate()
+   
 
     return  <Container className=" md:grid-cols-4 gap-3 ">
         

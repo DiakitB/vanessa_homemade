@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import Logo from "./Logo"
 
 const Image = styled.img`
 width: 100px;

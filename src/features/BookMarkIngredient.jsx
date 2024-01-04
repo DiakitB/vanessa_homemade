@@ -20,7 +20,7 @@ const Dive = styled.div`
 function BookMarkIngredient() {
     const bookMark = useSelector(state => state.bookmark.bookmark)
 const navigate = useNavigate()
-    console.log(bookMark)
+    
     if (!bookMark) return;
     const { name, ingredients, image } = bookMark;
     console.log(ingredients)
@@ -48,21 +48,3 @@ const navigate = useNavigate()
 export default BookMarkIngredient
 
 
-{/* <div className="flex flex-col  justify-center gap-2 px-8">
-    <div className="space-x-4 px-10">
-    <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
-            <Button type="secondary" onClick={testFunction}>Book Mark </Button>  
-    </div>
-    <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
-    <div className="pr-25 ">
-
-    <Image src={image} alt="picture" />
-    </div>
-   
-    <div className="">
-            {ingredients?.map((ingredient, index) => 
-                <h4 className="list-disc tracking-tight"><span>{ index +1}-</span>
-                    {ingredient}
-                </h4>)}
-        </div>
-  </div> */}
