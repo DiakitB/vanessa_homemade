@@ -11,6 +11,7 @@ import { Edit} from "../icons/Icons";
 
 
 import { NavLink } from 'react-router-dom'
+import AddNewRecipe from "./AddNewRecipe";
 
 
 
@@ -63,11 +64,11 @@ function Recipes({ recipe }) {
         <p className="leading-normal  font-semibold ">{description}</p>
       </div>
       <div className="space-x-4">
-     <button onClick={()=>setShowForm(show => !show)}><Edit/></button>
+     <button  onClick={()=>setShowForm(form => !form)}><Edit/></button>
       <Button type="small" onClick={()=>onClikHandler(id)} >Ingredients</Button>
       </div>
     </div>
-    {showForm && <Form recipeData={recipe} />}
+    {showForm && <AddNewRecipe recipe={recipe} setShowForm={setShowForm } />}
     </li>
 
      

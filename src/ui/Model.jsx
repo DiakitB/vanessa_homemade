@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import styled from "styled-components";
 
 const StyledModal = styled.div`
@@ -10,6 +11,8 @@ const StyledModal = styled.div`
   box-shadow: var(--shadow-lg);
   padding: 3.2rem 4rem;
   transition: all 0.5s;
+  width: 100%;
+  height: 100vh;
 `;
 
 const Overlay = styled.div`
@@ -50,14 +53,25 @@ const Button = styled.button`
 `;
 
 
-export default function Modal({children, onClose}) {
+ export default function Modal({children, onClose}) {
   return (
-    <Overlay>
-
-    <StyledModal>
-    <Button onClick={onClose}>x</Button>
-    <div>{children }</div>
-  </StyledModal >
-    </Overlay>
+    <StyledModal>{children}</StyledModal>
   )
 }
+
+
+
+function Window({ children}) {
+  
+
+ return createPortal(
+    <Overlay>
+      <StyledModal>
+       { children}
+      </StyledModal>
+    </Overlay>,
+    document.body
+  );
+}
+
+Modal.Window = Window
