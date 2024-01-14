@@ -4,15 +4,17 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createEditRecipe } from "../services/RecipeApi";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import ErrorPage from "./ErrorMessage";
+import IngredientsCreator from "./IngredientsCreator";
+import { useState } from "react";
 
 function Form({ recipeData = {} }) {
     const [searchParms, setSearchParams] = useSearchParams()
-    
+    const[addingIngredients, setAddingIngredient] = useState(true)
     if(recipeData)console.log(recipeData)
     const { id: editId, ...recivedData } = recipeData
     
 
-    console.log(recivedData, editId)
+  
 const isEditingSession = Boolean(editId)
     const { register, handleSubmit, reset, formState } = useForm({
         defaultValues: isEditingSession ? recivedData : {}
@@ -74,7 +76,7 @@ console.log(value)
             <div>
             <label >Choose a category:</label>
 
-                <select onChange={(e)=>onChangeHandler(e.target.value)} id="category" {...register("category",  { required: "This field is required" })} >
+                <select  id="category" {...register("category",  { required: "This field is required" })} >
                 <option value="" disabled selected hidden>Select a category</option>
                     
                     <option value="breakfast">Breakfast</option>
@@ -115,7 +117,9 @@ console.log(value)
                 dark:focus:border-blue-500 dark:shadow-sm-light"/>
                    {errors?.ingredients?.message && <ErrorPage error={errors.ingredients.message}/>}
                  
-             </div>
+            </div>
+            <IngredientsCreator />
+            <Button type="">Submit</Button>
         </div>
         
         <div className="py-4">
