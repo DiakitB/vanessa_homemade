@@ -39,7 +39,7 @@ function Recipes({ recipe }) {
     const navigate = useNavigate()
     if (!recipe) return
 
-    const { name, description, image,  id,ingredients } = recipe
+    const { name, description, image,  id,ingredients, category } = recipe
     // console.log(name, image, id)
     async function onClikHandler(id) {
         const data = await getRecipeIngredient(id)
@@ -55,6 +55,7 @@ function Recipes({ recipe }) {
   return <li className="">
     <div className="flex flex-col  justify-center gap-2 px-10 pb-4">
       <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
+      <h1>{category }</h1>
       <div className="pr-25 ">
         <NavLink to="/cooking" onClick={()=>dispatch(getRecipeObject(recipe))}>
       <Image src={image} alt="picture" />

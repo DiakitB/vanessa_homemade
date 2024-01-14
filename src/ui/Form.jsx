@@ -2,12 +2,16 @@ import { useForm } from "react-hook-form";
 import Button from "./Button";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createEditRecipe } from "../services/RecipeApi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import ErrorPage from "./ErrorMessage";
 
 function Form({ recipeData = {} }) {
+    const [searchParms, setSearchParams] = useSearchParams()
+    
     if(recipeData)console.log(recipeData)
     const { id: editId, ...recivedData } = recipeData
+    
+
     console.log(recivedData, editId)
 const isEditingSession = Boolean(editId)
     const { register, handleSubmit, reset, formState } = useForm({
@@ -38,37 +42,19 @@ if(!isEditingSession)
           name: data.name,
            description: data.description,
        image: data.image[0],
+       category: data.category,
            ingredients: data.ingredients.split(",")
 }
 createRecipe(newRecipe)
         }
-       
+      
         if (isEditingSession) {
             data.id = editId;
             const image = typeof data.image === "string" ? data.image : data.image[0]
             editRecipe({ newRecipeData: { ...data, image } ,id: data.id })
         }
             
-        
-     
-        
-        
-    //     const image = typeof data.image === "string" ? data.image : data.image[0]
-    //     console.log(data)
-    //    const  newRecipe = {
-    //         name: data.name,
-    //         description: data.description,
-    //         image: data.image[0],
-    //         ingredients: data.ingredients.split(",")
-    //     }
-    //     console.log(newRecipe)
-     
-        // mutate(newRecipe)
-      
        navigate('/success')
-       
-        
-       
 
         
     }
@@ -77,11 +63,26 @@ createRecipe(newRecipe)
         console.log(errors)
         
     }
-
+    function onChangeHandler(value) {
+console.log(value)
+    
+}
 
 
     return <form onSubmit={handleSubmit(OnSubmitHandler, onError)} >
         <div className="grid grid-cols-1 pl-2 bg-blue-500 w-full overscroll-x-none overflow-auto scrollbar-hide py-4 px-5 ">
+            <div>
+            <label >Choose a category:</label>
+
+                <select onChange={(e)=>onChangeHandler(e.target.value)} id="category" {...register("category",  { required: "This field is required" })} >
+                <option value="" disabled selected hidden>Select a category</option>
+                    
+                    <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="supper">Supper</option>
+               
+                </select>
+            </div>
             <div className="input w-full">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Recipe Name</label>
                 <input type="text" placeholder="type name" id="name" {...register("name",  { required: "This field is required" })} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900

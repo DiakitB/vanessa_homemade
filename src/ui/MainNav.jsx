@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import RecipeOperation from '../features/recipeOperation';
 
 
 const Image = styled.img`
@@ -34,7 +35,7 @@ function MainNav() {
             Add  Recipe
           </StyledLink>
         </li>
-     
+     <RecipeOperation/>
 
         
       </ul>
