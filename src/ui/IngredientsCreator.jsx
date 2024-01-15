@@ -1,8 +1,12 @@
 
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
+import { clearIngredientList, getIngredients } from "../reducers/ingredientSlice";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 const StyledSelect = styled.select`
-  font-size: 1.4rem;
+  font-size: 1rem;
   padding: 0.8rem 1.2rem;
   border: 1px solid
     ${(props) =>
@@ -21,33 +25,56 @@ const quantities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 const units = ["cup", "slice", "tps"]
 const ingredients = ["celery", "salad", "onion"]
 
+
+
+
 export default function IngredientsCreator() {
 
+const dispatch = useDispatch()
+    const { register, handleSubmit, reset, formState } = useForm()
 
-    function onSubmitHandler(value) {
-        console.log(value)
+
+
+    function onSubmitHandler(data) {
+       
+        if (!data) return
+        dispatch(getIngredients(data))
+ console.log(data)
+   
     }
-    return <div onSubmit={(e)=>onSubmitHandler(e.target.value)}>
-        <div className="flex">
+
+    function onClikHandler() { 
+        dispatch(clearIngredientList())
+    }
+    
+
+    return <form onSubmit={handleSubmit(onSubmitHandler)} >
+        <div className="flex ">
+          
         <div>
-      <label>Quantity</label>
-        <StyledSelect>
-           
-        {quantities.map(quantity => <option key={quantity}>{ quantity}</option>)}
+      
+        <StyledSelect  id="quantity" {...register("quantity",  { required: "This field is required" })}>
+        <option value="" disabled selected hidden><h5 >Quantity</h5></option>
+                    {quantities.map(quantity => <option key={quantity} className="text-sm">{ quantity}</option>)}
     </StyledSelect>
         </div>
         <div>
-        <label>Unit</label> 
-    <StyledSelect>
-        {units.map(unit => <option key={unit}>{ unit}</option>)}
+        
+                <StyledSelect className="text-red-600 text-sm"  id="unit" {...register("unit", { required: "This field is required" })} >
+                <option value="" disabled selected hidden>Unit</option>
+        {units.map(unit => <option key={unit} className="text-sm">{ unit}</option>)}
     </StyledSelect>
         </div>
         <div>
-        <label>Ingredient</label>
-    <StyledSelect>
-        {ingredients.map(ingredient => <option key={ingredient}>{ ingredient}</option>)}
+        
+                <StyledSelect className="text-red-600 text-sm"  id="ingredient" {...register("ingredient", { required: "This field is required" })}>
+                <option value="" disabled selected hidden>Ingredient</option>
+                    {ingredients.map(ingredient => <option key={ingredient}  className="text-sm">{ingredient }</option>)}
     </StyledSelect>
-        </div>
-    </div>
-    </div>
+            </div>
+            <button>Submit</button>
+          
+</div>
+        
+    </form>
 }

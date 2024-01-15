@@ -13,10 +13,10 @@ const recipeSlice = createSlice({
             state.recipe = action.payload
             console.log(action.payload)
         },
-        getBookMarkObject(state, action) {
-            state.bookMark = action.payload
-            console.log(action.payload)
-        }
+        // getBookMarkObject(state, action) {
+        //     state.bookMark = action.payload
+        //     console.log(action.payload)
+        // }
        
         
     }

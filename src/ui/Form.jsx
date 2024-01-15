@@ -6,16 +6,28 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import ErrorPage from "./ErrorMessage";
 import IngredientsCreator from "./IngredientsCreator";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function Form({ recipeData = {} }) {
+    const ingredients = useSelector(state => state.ingredients.ingredients)
     const [searchParms, setSearchParams] = useSearchParams()
     const[addingIngredients, setAddingIngredient] = useState(true)
     if(recipeData)console.log(recipeData)
     const { id: editId, ...recivedData } = recipeData
     
-
+    console.log(ingredients)
+    ingredients.forEach((element) => {
+        const { quantity, unit, ingredient } = element
+      return{quantity, unit, ingredient}
+  })
   
-const isEditingSession = Boolean(editId)
+    
+
+    console.log(ingredients)
+    
+    const isEditingSession = Boolean(editId)
+    
+
     const { register, handleSubmit, reset, formState } = useForm({
         defaultValues: isEditingSession ? recivedData : {}
     });
@@ -71,7 +83,9 @@ console.log(value)
 }
 
 
-    return <form onSubmit={handleSubmit(OnSubmitHandler, onError)} >
+    return <>
+        <IngredientsCreator/>
+    <form onSubmit={handleSubmit(OnSubmitHandler, onError)} >
         <div className="grid grid-cols-1 pl-2 bg-blue-500 w-full overscroll-x-none overflow-auto scrollbar-hide py-4 px-5 ">
             <div>
             <label >Choose a category:</label>
@@ -110,23 +124,29 @@ console.log(value)
                  {errors?.image?.message && <ErrorPage error={errors.image.message}/>}
             </div>
                 <div >   
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ingredients</label>
-                <input type="text" placeholder="Start by typing your ingredients separeted by comma"id="image" {...register("ingredients", { required: "This field is required" })}  className="shadow-sm bg-gray-50 border border-gray-300 
+                    
+                {/* <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ingredients</label>
+                <textarea type="text"  {...register("ingredients", { required: "This field is required" })}  className="shadow-sm bg-gray-50 border border-gray-300 
                 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
-                dark:focus:border-blue-500 dark:shadow-sm-light"/>
+                dark:focus:border-blue-500 dark:shadow-sm-light"></textarea>
                    {errors?.ingredients?.message && <ErrorPage error={errors.ingredients.message}/>}
-                 
-            </div>
-            <IngredientsCreator />
-            <Button type="">Submit</Button>
+                  */}
+                </div>
+                <div className="flex flex-col gap-1 py-4">
+                <label>Ingredient</label>
+                    {ingredients.map((ing, index) => <textarea type="text" {...register} rows="1"value={`${index +1}-${ing.quantity} ${ing.unit} ${ing.ingredient}` }></textarea>)}
+                </div>
+                
+           
         </div>
         
         <div className="py-4">
             <Button type="small" >{isEditingSession ? "Edit Recipe": "Create New Recipe" }</Button>
         </div>  
         
-    </form>
+        </form>
+        </>
 }
 
 export default Form;
