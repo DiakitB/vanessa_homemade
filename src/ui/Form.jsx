@@ -6,7 +6,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import ErrorPage from "./ErrorMessage";
 import IngredientsCreator from "./IngredientsCreator";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearIngredientList } from "../reducers/ingredientSlice";
 
 function Form({ recipeData = {} }) {
     const ingredients = useSelector(state => state.ingredients.ingredients)
@@ -15,7 +16,7 @@ function Form({ recipeData = {} }) {
     if(recipeData)console.log(recipeData)
     const { id: editId, ...recivedData } = recipeData
     
-    console.log(ingredients)
+    const dispatch = useDispatch()
     ingredients.forEach((element) => {
         const { quantity, unit, ingredient } = element
       return{quantity, unit, ingredient}
@@ -46,20 +47,23 @@ function Form({ recipeData = {} }) {
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["bookmark"] })
             reset();
+           
         }
     })
     console.log(errors)
     function OnSubmitHandler(data) {
+        console.log(data)
         if (!data) return
-if(!isEditingSession)
+  if(!isEditingSession)
   {const  newRecipe = {
           name: data.name,
            description: data.description,
        image: data.image[0],
        category: data.category,
-           ingredients: data.ingredients.split(",")
-}
-createRecipe(newRecipe)
+           ingredients: ingredients
+  }
+      
+    createRecipe(newRecipe)
         }
       
         if (isEditingSession) {
@@ -67,7 +71,7 @@ createRecipe(newRecipe)
             const image = typeof data.image === "string" ? data.image : data.image[0]
             editRecipe({ newRecipeData: { ...data, image } ,id: data.id })
         }
-            
+        dispatch(clearIngredientList(""))
        navigate('/success')
 
         
@@ -135,7 +139,7 @@ console.log(value)
                 </div>
                 <div className="flex flex-col gap-1 py-4">
                 <label>Ingredient</label>
-                    {ingredients.map((ing, index) => <textarea type="text" {...register} rows="1"value={`${index +1}-${ing.quantity} ${ing.unit} ${ing.ingredient}` }></textarea>)}
+                 {  ingredients.map((ing, index) => <textarea type="text" id="ingredient"  {...register} rows="1"value={`${index +1}-${ing.quantity} ${ing.unit} ${ing.ingredient}` }></textarea>)}
                 </div>
                 
            

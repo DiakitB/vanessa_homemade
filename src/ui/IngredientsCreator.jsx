@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 const StyledSelect = styled.select`
-  font-size: 1rem;
-  padding: 0.8rem 1.2rem;
+  font-size: 0.5;
+  padding: 0;
   border: 1px solid
     ${(props) =>
       props.type === "white"
@@ -23,7 +23,7 @@ const StyledSelect = styled.select`
 `;
 const quantities = [1, 1/2, 1/4,  2, 3,3/4, 4, 5, 6, 7, 8, 9]
 const units = ["cup", "slice", "tps"]
-const ingredients = ["celery", "salad", "onion carrots, broccoli, cucumber, chicken, beef, fish, coffee"]
+const ingredients = ["celery", "salad", "onion", "carrots", "broccoli", "cucumber", "chicken", "beef", "fish", "coffee"]
 
 
 
@@ -39,18 +39,19 @@ const dispatch = useDispatch()
        
         if (!data) return
         dispatch(getIngredients(data))
- console.log(data)
+        console.log(data)
+        reset()
    
     }
 
-    function onClikHandler() { 
-        dispatch(clearIngredientList())
-    }
+   
     
 
     return <form onSubmit={handleSubmit(onSubmitHandler)} >
-        <div className="flex ">
-          
+        <div className="flex  gap-2">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full p">
+  Submit
+</button>
         <div>
       
         <StyledSelect  id="quantity" {...register("quantity",  { required: "This field is required" })}>
@@ -72,7 +73,7 @@ const dispatch = useDispatch()
                     {ingredients.map(ingredient => <option key={ingredient}  className="text-sm">{ingredient }</option>)}
     </StyledSelect>
             </div>
-            <button>Submit</button>
+         
           
 </div>
         

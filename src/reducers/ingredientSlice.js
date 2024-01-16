@@ -16,7 +16,7 @@ const ingredientSlice = createSlice({
         }
         ,
         clearIngredientList(state, action) {
-            return {...state, ingredients:[]}
+            return {...state, ingredients:[...state.ingredients, action.payload]}
             
         }
        
