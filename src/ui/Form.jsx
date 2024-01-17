@@ -140,8 +140,12 @@ console.log(value)
                 </div>
                 <div className="flex flex-col gap-1 py-4">
                 <label>Ingredient</label>
-                 {  ingredients.map((ing, index) => <textarea id="ingredient"  {...register} rows="1"value={ingredients?`${index +1}-${ing.quantity} ${ing.unit} ${ing.ingredient}`:"" }></textarea>)}
+                 {!isEditingSession &&  ingredients.map((ing, index) => <textarea id="ingredient"  {...register} rows="1"value={ingredients?`${index +1}-${ing.quantity} ${ing.unit} ${ing.ingredient}`:"" }></textarea>)}
                 </div>
+                {isEditingSession && <div>
+                    <label>Ingredient</label>
+                    <textarea id="ingredients" rows="5" {...register("ingredients")}></textarea>
+                </div>}
                 <div>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instruction</label>
                     <textarea id="instructions" rows="5" {...register("instructions", {required: "this field is required"})}  className="shadow-sm bg-gray-50 border border-gray-300 
