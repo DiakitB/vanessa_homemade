@@ -18,7 +18,7 @@ export default function RecipeCooking() {
         <div>
             <Image src={recipes.image} />
             <div>
-                <p>{ recipes.description}</p>
+                <p>{ recipes.instructions}</p>
             </div>
         </div>
     </div>

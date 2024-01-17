@@ -16,8 +16,10 @@ const ingredientSlice = createSlice({
         }
         ,
         clearIngredientList(state, action) {
-            return {...state, ingredients:[...state.ingredients, action.payload]}
-            
+            console.log("clearing ingredient")
+           
+            return {...state, ingredients:[]}
+           
         }
        
         

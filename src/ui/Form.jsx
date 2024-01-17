@@ -60,7 +60,8 @@ function Form({ recipeData = {} }) {
            description: data.description,
        image: data.image[0],
        category: data.category,
-           ingredients: ingredients
+      ingredients: ingredients,
+           instructions: data.instructions
   }
       
     createRecipe(newRecipe)
@@ -139,9 +140,15 @@ console.log(value)
                 </div>
                 <div className="flex flex-col gap-1 py-4">
                 <label>Ingredient</label>
-                 {  ingredients.map((ing, index) => <textarea type="text" id="ingredient"  {...register} rows="1"value={`${index +1}-${ing.quantity} ${ing.unit} ${ing.ingredient}` }></textarea>)}
+                 {  ingredients.map((ing, index) => <textarea id="ingredient"  {...register} rows="1"value={ingredients?`${index +1}-${ing.quantity} ${ing.unit} ${ing.ingredient}`:"" }></textarea>)}
                 </div>
-                
+                <div>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instruction</label>
+                    <textarea id="instructions" rows="5" {...register("instructions", {required: "this field is required"})}  className="shadow-sm bg-gray-50 border border-gray-300 
+                text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
+                dark:focus:border-blue-500 dark:shadow-sm-light"></textarea>
+                </div>
            
         </div>
         

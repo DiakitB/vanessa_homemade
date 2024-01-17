@@ -20,7 +20,7 @@ const StyledSelect = styled.select`
 
 export default function SortBy({ options, value, ...props}) {
     return <StyledSelect>
-        <option value="" disabled selected hidden>Sort</option>
+        <option value="" disabled selected hidden>Filter</option>
         {options.map(option => <option value={option.value} key={option.value}>{ option.value}</option>)}
     </StyledSelect>
     
