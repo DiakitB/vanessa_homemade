@@ -23,7 +23,7 @@ const StyledSelect = styled.select`
 `;
 const quantities = [1, 1/2, 1/4,  2, 3,3/4, 4, 5, 6, 7, 8, 9]
 const units = ["cup", "slice", "tps"]
-const ingredients = ["celery", "salad", "onion", "carrots", "broccoli", "cucumber", "chicken", "beef", "fish", "coffee"]
+const ingredients = ["celery", "salad", "onion", "carrots", "broccoli", "cucumber", "chicken", "beef", "fish", "coffee", "asparagus"]
 
 
 

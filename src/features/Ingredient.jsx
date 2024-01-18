@@ -22,7 +22,7 @@ const Dive = styled.div`
 function Ingredient() {
     const recipe = useSelector(state => state.recipe.recipe)
     const navigate = useNavigate()
-
+console.log(recipe)
     ////
     
 
@@ -42,6 +42,7 @@ function Ingredient() {
     const { name, image, ingredients, description } = data
     console.log(name)
     console.log(ingredients)
+    console.log(ingredients.quantity)
     async function testFunction() {
         const  newRecipe = {
             name: data?.name,
@@ -53,23 +54,26 @@ function Ingredient() {
         mutate(newRecipe)
     
     }
-    return<div className="flex flex-col  justify-center gap-2 px-8">
-    <div className="space-x-2">
-    <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
-            <Button type="secondary" onClick={testFunction}>Book Mark </Button>  
-    </div>
-    <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
-    <div className="pr-25 ">
-
-    <Image src={image} alt="picture" />
-    </div>
    
-    <div className="">
-            {ingredients?.map((ingredient, index) => 
-                <h4 className="list-disc tracking-tight"><span>{ index +1}-</span>
-                    {ingredient}
-                </h4>)}
-        </div>
+    console.log(typeof (ingredients))
+    
+  const Deltat =  ingredients.map((ingre) => {
+        return JSON.parse(ingre)
+       
+})
+console.log(Deltat)
+    return <div className="flex flex-col  justify-center gap-2 px-8">
+            <div className="space-x-2">
+            <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
+                    <Button type="secondary" onClick={testFunction}>Book Mark </Button>  
+            </div>
+            <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
+            <div className="pr-25 ">
+
+            <Image src={image} alt="picture" />
+            </div>
+        {Deltat.map((element, index) => <h4>{`${index + 1}:${element.quantity} ${element.unit} ${element.ingredient}` }</h4>)}
+                    
   </div>
 
    
@@ -81,4 +85,14 @@ export default Ingredient;
 
 {/* <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
             <Button type="secondary" onClick={testFunction}>Book this recipe</Button> */}
-            
+//             const myArray = [{x:100}, {x:200}, {x:300}];
+
+// for (var key in result)
+// {
+//    if (result.hasOwnProperty(key))
+//    {
+//       // here you have access to
+//       var MNGR_NAME = result[key].MNGR_NAME;
+//       var MGR_ID = result[key].MGR_ID;
+//    }
+// }
