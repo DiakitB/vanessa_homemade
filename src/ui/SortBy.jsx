@@ -1,4 +1,6 @@
 
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 const FilterButton = styled.button`
   background-color: var(--color-grey-0);
@@ -39,9 +41,18 @@ const StyledSelect = styled.select`
 
 
 `;
-
+function onChangeHandler() {
+  console.log("hello")
+}
 export default function SortBy({ options, value, ...props}) {
-    return <StyledSelect>
+const[selectedValue, setSelectedValue] = useState()
+  const [searParms, setSearchParms] = useSearchParams()
+  if(searParms !== "")
+  searParms.set("sort", selectedValue)
+  setSearchParms(searParms)
+  console.log(`this is the courant search param ${searParms}`)
+console.log(selectedValue)
+    return <StyledSelect value={selectedValue} onChange={(e)=>setSelectedValue(e.target.value)}>
         <option value="" disabled selected hidden>Filter</option>
         {options.map(option => <option value={option.value} key={option.value}>{ option.value}</option>)}
     </StyledSelect>
