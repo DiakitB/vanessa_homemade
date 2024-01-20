@@ -15,7 +15,7 @@ const StyledLink = styled(NavLink)`
 function MainNav() {
   return (
     <nav  >
-      <ul className='flex  justify-start items-center text-sm md:flex-row gap-4'>
+      <ul className='flex  justify-start items-center text-lg md:flex-row gap-4'>
         <li>
           <Image src="/cooking.jpg" alt='logo' />
        </li>
