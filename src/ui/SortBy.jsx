@@ -43,14 +43,19 @@ const StyledSelect = styled.select`
 
 `;
 
-export default function SortBy({ options, value, ...props}) {
+export default function SortBy({ options, value, ...props }) {
+  
+
 const[selectedValue, setSelectedValue] = useState("")
- 
+const [searchParams, setSearchParam] = useSearchParams()
   console.log(selectedValue)
-  const [searchParams, setSearchParam] = useSearchParams()
-  searchParams.set("sort", selectedValue)
-  setSearchParam(searchParams)
-if(searchParams !== "") console.log(searchParams.get("sort"))
+  useEffect(function () { 
+
+   console.log(selectedValue)
+    searchParams.set("sort", selectedValue)
+    setSearchParam(searchParams)
+  },[selectedValue])
+
     return <StyledSelect value={selectedValue} {...props} onChange={(e)=>setSelectedValue(e.target.value)}>
         <option value="" disabled selected hidden>Filter</option>
         {options.map(option => <option value={option.value} key={option.value}>{ option.value}</option>)}
