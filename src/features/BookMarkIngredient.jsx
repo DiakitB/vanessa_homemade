@@ -26,8 +26,10 @@ const navigate = useNavigate()
     console.log(ingredients)
     return <div className="flex flex-col  justify-center gap-2 px-8">
     <div className="space-x-4 px-10">
-    <Button type="secondary" onClick={() => navigate("/bookmark")} > God back</Button>
-            {/* <Button type="secondary" onClick={testFunction}>Book Mark </Button>   */}
+
+            <button type="button" class="text-white bg-gradient-to-br from-green-400
+             to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg
+     text-lg px-5 py-2.5 text-center me-2 mb-2" onClick={() => navigate("/bookmark")}>Back</button>
     </div>
     <h3 className="px- py-3 leading-normal  font-semibold  ">{name}</h3>
     <div className="pr-25 ">
