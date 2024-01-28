@@ -39,7 +39,7 @@ function Recipes({ recipe }) {
     const navigate = useNavigate()
     if (!recipe) return
 
-    const { name, description, image,  id,ingredients, category } = recipe
+    const { name, description, image,  id } = recipe
     // console.log(name, image, id)
     async function onClikHandler(id) {
         const data = await getRecipeIngredient(id)

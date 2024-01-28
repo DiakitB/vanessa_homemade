@@ -8,11 +8,13 @@ import IngredientsCreator from "./IngredientsCreator";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearIngredientList } from "../reducers/ingredientSlice";
+import AddIngredient from "./AddIngredient";
 
 function Form({ recipeData = {} }) {
     const ingredients = useSelector(state => state.ingredients.ingredients)
-    const [searchParms, setSearchParams] = useSearchParams()
-    const[addingIngredients, setAddingIngredient] = useState(true)
+    // const [searchParms, setSearchParams] = useSearchParams()
+    const [addingIngredients, setAddingIngredient] = useState(false)
+    
     if(recipeData)console.log(recipeData)
     const { id: editId, ...recivedData } = recipeData
     
@@ -82,14 +84,24 @@ function Form({ recipeData = {} }) {
         console.log(errors)
         
     }
-    function onChangeHandler(value) {
-console.log(value)
+    function onChangeHandler() {
+
     
 }
 
 
     return <>
+        <div className="flex gap-5">
         <IngredientsCreator/>
+        <div>
+          <button onClick={()=>setAddingIngredient(show => !show)}   className="px-5 text-gray-900 
+           bg-gradient-to-r 
+           from-red-200 via-red-300 to-yellow-200
+           hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100
+           dark:focus:ring-red-400 font-medium rounded-lg text-lg">add</button>
+            </div>
+            {addingIngredients && <AddIngredient/>}
+        </div>
     <form onSubmit={handleSubmit(OnSubmitHandler, onError)} >
         <div className="grid grid-cols-1 pl-2 bg-blue-500 w-full overscroll-x-none overflow-auto scrollbar-hide py-4 px-5 ">
             <div>

@@ -40,11 +40,6 @@ function App() {
             <Route path="success" element={<UploadSuccess/>} />
             <Route path="cooking" element={<RecipeCooking/>} />
             
-            
-           
-            
-            
-
 
         </Route>
     </Routes>
