@@ -1,9 +1,10 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../ui/Button";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { postBookMar } from "../services/BookMarkApi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import styled from "styled-components";
+import { getRecipeObject } from "../reducers/recipeSlice";
 
 const Image = styled.img`
      width: 330px;
@@ -22,6 +23,7 @@ const Dive = styled.div`
 function Ingredient() {
     const recipe = useSelector(state => state.recipe.recipe)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 console.log(recipe)
     ////
     
@@ -29,7 +31,8 @@ console.log(recipe)
     const queryClient = useQueryClient()
     const { mutate, isloading, } = useMutation({
         mutationFn: postBookMar,
-        onSuccess: ()=> alert("recipe uloaded successfully")
+        onSuccess: () => alert("recipe uloaded successfully"),
+      
     })
    
    
@@ -39,7 +42,7 @@ console.log(recipe)
     
     const data = recipe[0]
     if (!data) return;
-    const { name, image, ingredients, description } = data
+    const { name, image, ingredients, description , instructions} = data
     console.log(name)
     console.log(ingredients)
     console.log(ingredients.quantity)
@@ -79,8 +82,20 @@ console.log(Deltat)
             <div className="pr-25 ">
 
             <Image src={image} alt="picture" />
+        </div>
+        <div className="grid grid-cols-2 ">
+            <div>
+                
+            {Deltat?.map((element, index) => <h4>{`${index + 1}:${element.quantity} ${element.unit} ${element.ingredient}`}</h4>)}
             </div>
-        {Deltat.map((element, index) => <h4>{`${index + 1}:${element.quantity} ${element.unit} ${element.ingredient}` }</h4>)}
+            <div>
+
+            <NavLink to="/cooking" onClick={() => dispatch(getRecipeObject(data))} className="text-white bg-gradient-to-r mx-[70px]  from-purple-500 via-purple-600 to-purple-700
+         hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300
+         dark:focus:ring-purple-800 font-medium rounded-lg text-lg
+         px-5 py-2.5 text-center me-2 mb-2">Instructions</NavLink>
+         </div>
+        </div>
                     
   </div>
 

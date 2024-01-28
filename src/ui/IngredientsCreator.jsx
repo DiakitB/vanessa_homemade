@@ -76,33 +76,34 @@ const dispatch = useDispatch()
 
     return <form onSubmit={handleSubmit(onSubmitHandler)} >
         <div className="flex  gap-2">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-1 px-2 rounded-full p">
-  Submit
-</button>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-1 px-2 rounded-full p">
+                    Submit
+                    </button>
+                <div>
+              
+                    <StyledSelect  id="quantity" {...register("quantity",  { required: "This field is required" })} className="text-lg text-red-600">
+                  <option value="" disabled selected hidden><h5 >Quantity</h5></option>
+                            {quantityList?.quantity.map(quantity => <option key={quantity} className="text-sm">{ quantity}</option>)}
+                    </StyledSelect>
+                </div>
+                <div>
+                
+                        <StyledSelect className="text-red-600 text-lg"  id="unit" {...register("unit", { required: "This field is required" })} >
+                        <option value="" disabled selected hidden>Unit</option>
+                    {unitList.unit?.map(unit => <option key={unit} className="text-sm">{ unit}</option>)}
+                      </StyledSelect>
+                </div>
+                <div>
+                
+                        <StyledSelect className="text-red-600 text-lg"  id="ingredient" {...register("ingredient", { required: "This field is required" })}>
+                        <option value="" disabled selected hidden >Ingredient</option>
+                            {IngredientList.ingredients?.map(ingredient => <option key={ingredient}  className="text-sm">{ingredient }</option>)}
+                      </StyledSelect>
+        </div>   
         <div>
-      
-        <StyledSelect  id="quantity" {...register("quantity",  { required: "This field is required" })} className="text-lg text-red-600">
-        <option value="" disabled selected hidden><h5 >Quantity</h5></option>
-                    {quantityList?.quantity.map(quantity => <option key={quantity} className="text-sm">{ quantity}</option>)}
-    </StyledSelect>
+          <button className="px-5 text-gray-900  bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-lg">add</button>
         </div>
-        <div>
-        
-                <StyledSelect className="text-red-600 text-lg"  id="unit" {...register("unit", { required: "This field is required" })} >
-                <option value="" disabled selected hidden>Unit</option>
-        {unitList.unit?.map(unit => <option key={unit} className="text-sm">{ unit}</option>)}
-    </StyledSelect>
-        </div>
-        <div>
-        
-                <StyledSelect className="text-red-600 text-lg"  id="ingredient" {...register("ingredient", { required: "This field is required" })}>
-                <option value="" disabled selected hidden >Ingredient</option>
-                    {IngredientList.ingredients?.map(ingredient => <option key={ingredient}  className="text-sm">{ingredient }</option>)}
-    </StyledSelect>
-            </div>
-         
-          
-</div>
+          </div>
         
     </form>
 }
