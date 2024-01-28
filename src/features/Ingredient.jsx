@@ -5,7 +5,7 @@ import { postBookMar } from "../services/BookMarkApi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import styled from "styled-components";
 import { getRecipeObject } from "../reducers/recipeSlice";
-
+import { useForm } from "react-hook-form";
 const Image = styled.img`
      width: 330px;
  height: 220px;
@@ -22,6 +22,7 @@ const Dive = styled.div`
 
 function Ingredient() {
     const recipe = useSelector(state => state.recipe.recipe)
+    
     const navigate = useNavigate()
     const dispatch = useDispatch()
 console.log(recipe)
@@ -36,7 +37,7 @@ console.log(recipe)
     })
    
    
-
+    const { register, handleSubmit, reset, formState } = useForm();
 
     if (!recipe) return
     
@@ -64,7 +65,10 @@ console.log(recipe)
         return JSON.parse(ingre)
        
 })
-console.log(Deltat)
+function onChangeHandler(data){
+    console.log(data)
+    console.log("")
+}
     return <div className="flex flex-col  justify-center gap-2 px-8">
             <div className="space-x-2">
             {/* <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button> */}
@@ -86,16 +90,19 @@ console.log(Deltat)
         <div className="grid grid-cols-2 ">
         <div>
                     {Deltat?.map((ing, index) => {
-                        return <form>
+                        return <>
                             <div>
-                            <input type="checkbox" labe={ing.ingredient} value={`${index + 1}) ${ing.quantity} ${ing.unit} ${ing.ingredient} `}/>
+                                
+                                <input type="checkbox" labe={ing.ingredient} value={`${index + 1})
+                                 ${ing.quantity} ${ing.unit} ${ing.ingredient} `} onChange={ ()=>onChangeHandler(ing)} />
                             <label > {`${index + 1}) ${ing.quantity} ${ing.unit} ${ing.ingredient} `}</label>
                             
                             </div>
                             
-                        </form>
+                        </>
                         
-         })}
+                    })}
+                <button>Submit</button>
         </div>
             <div>
 
