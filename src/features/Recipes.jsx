@@ -51,15 +51,17 @@ function Recipes({ recipe }) {
     }
   
     // console.log(ingredients)
- 
+  function getSumUpRecipe(recipe) {
+     dispatch(getRecipeObject(recipe))
+   }
   return <li className="">
     <div className="flex flex-col  justify-center gap-2 px-10 pb-4">
       <h3 className="px- py-3 leading-normal  font-bold  text-lg">{name}</h3>
    
-       <div className="pr-25 ">
-        <NavLink to="/success">
+       <div className="pr-25 " onClick={()=>getSumUpRecipe(recipe)}>
+        <NavLink to="/recipe_resume">
       <Image src={image} alt="picture" />
-          
+ 
       </NavLink>
      
       </div> 

@@ -68,7 +68,7 @@ console.log(Deltat)
     return <div className="flex flex-col  justify-center gap-2 px-8">
             <div className="space-x-2">
             {/* <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button> */}
-            <button type="button" class="text-white bg-gradient-to-br from-green-400 
+            <button type="button" className="text-white bg-gradient-to-br from-green-400 
             to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200
              dark:focus:ring-green-800 font-medium 
             rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2"onClick={() => navigate("/recipes")} >Back</button>
@@ -84,10 +84,19 @@ console.log(Deltat)
             <Image src={image} alt="picture" />
         </div>
         <div className="grid grid-cols-2 ">
-            <div>
-                
-            {Deltat?.map((element, index) => <h4>{`${index + 1}:${element.quantity} ${element.unit} ${element.ingredient}`}</h4>)}
-            </div>
+        <div>
+                    {Deltat?.map((ing, index) => {
+                        return <form>
+                            <div>
+                            <input type="checkbox" labe={ing.ingredient} value={`${index + 1}) ${ing.quantity} ${ing.unit} ${ing.ingredient} `}/>
+                            <label > {`${index + 1}) ${ing.quantity} ${ing.unit} ${ing.ingredient} `}</label>
+                            
+                            </div>
+                            
+                        </form>
+                        
+         })}
+        </div>
             <div>
 
             <NavLink to="/cooking" onClick={() => dispatch(getRecipeObject(data))} className="text-white bg-gradient-to-r mx-[70px]  from-purple-500 via-purple-600 to-purple-700
@@ -106,16 +115,3 @@ export default Ingredient;
 
 
 
-{/* <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button>
-            <Button type="secondary" onClick={testFunction}>Book this recipe</Button> */}
-//             const myArray = [{x:100}, {x:200}, {x:300}];
-
-// for (var key in result)
-// {
-//    if (result.hasOwnProperty(key))
-//    {
-//       // here you have access to
-//       var MNGR_NAME = result[key].MNGR_NAME;
-//       var MGR_ID = result[key].MGR_ID;
-//    }
-// }

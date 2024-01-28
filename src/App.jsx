@@ -11,6 +11,7 @@ import BookMarkIngredient from "./features/BookMarkIngredient";
 import UploadSuccess from "./ui/UploadSuccess";
 // import Header from "./ui/Sidebar";
 import RecipeCooking from "./features/RecipeCooking";
+import RecipeResume from "./ui/RecipeResume";
 
 
 
@@ -39,6 +40,7 @@ function App() {
             <Route path="form" element={<Form/>}/>
             <Route path="success" element={<UploadSuccess/>} />
             <Route path="cooking" element={<RecipeCooking/>} />
+            <Route path="recipe_resume" element={<RecipeResume/>} />
             
 
         </Route>

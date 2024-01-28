@@ -25,18 +25,18 @@ function RecipesList() {
             reset();
         }
     })
-console.log(recipes)
+
     const filterValue = searchParams.get("sort") || "all"
 
     let filterRecipe;
 
     if (filterValue === "all") filterRecipe = recipes
     if (filterValue === "breakfast") filterRecipe = recipes?.filter(recipe => recipe.category === "breakfast")
-    console.log(filterRecipe)
+ 
     if (filterValue === "lunch") filterRecipe = recipes?.filter(recipe => recipe.category === "lunch")
-    console.log(filterRecipe)
+    
     if (filterValue === "supper") filterRecipe = recipes?.filter(recipe => recipe.category === "supper")
-    console.log(filterRecipe)
+
     return <Container className="md:grid-cols-4 ">
     {filterRecipe?.map(recipe => <Recipes recipe={recipe} key={recipe.id}/>)}
     </Container>
