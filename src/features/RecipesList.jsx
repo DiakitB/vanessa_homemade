@@ -8,6 +8,7 @@ const Container = styled.ul`
    height: 1200px;
   width: 100vw;
     display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-items: center;
   direction: ltr;
     gap: 5px;

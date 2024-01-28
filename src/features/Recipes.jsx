@@ -39,7 +39,7 @@ function Recipes({ recipe }) {
     const navigate = useNavigate()
     if (!recipe) return
 
-    const { name, description, image,  id } = recipe
+    const { name,  image,  id } = recipe
     // console.log(name, image, id)
     async function onClikHandler(id) {
         const data = await getRecipeIngredient(id)
@@ -57,14 +57,14 @@ function Recipes({ recipe }) {
       <h3 className="px- py-3 leading-normal  font-bold  text-lg">{name}</h3>
    
        <div className="pr-25 ">
-      
+        <NavLink to="/success">
       <Image src={image} alt="picture" />
+          
+      </NavLink>
      
       </div> 
-      <div  className="pr-20">
-        <p className="text-xl font-medium text-gray-900 dark:text-white">{description}</p>
-      </div>
-      <div className="space-x-8">
+   
+      <div className="flex gap-1">
      <button  onClick={()=>setShowForm(form => !form)}><Edit/></button>
         {/* <Button type="small" onClick={() => onClikHandler(id)} >Ingredients</Button> */}
         <button type="button"  className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-lg
