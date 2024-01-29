@@ -65,10 +65,14 @@ console.log(recipe)
         return JSON.parse(ingre)
        
 })
-function onChangeHandler(data){
-    console.log(data)
-    console.log("")
-}
+    function onChangeHandler(value) {
+        console.log(value)
+    }
+
+
+
+
+
     return <div className="flex flex-col  justify-center gap-2 px-8">
             <div className="space-x-2">
             {/* <Button type="secondary" onClick={() => navigate("/recipes")} > God back</Button> */}
@@ -94,7 +98,7 @@ function onChangeHandler(data){
                             <div>
                                 
                                 <input type="checkbox" labe={ing.ingredient} value={`${index + 1})
-                                 ${ing.quantity} ${ing.unit} ${ing.ingredient} `} onChange={ ()=>onChangeHandler(ing)} />
+                                 ${ing.quantity} ${ing.unit} ${ing.ingredient} `} onChange={ (e)=>onChangeHandler(e.target.value)} />
                             <label > {`${index + 1}) ${ing.quantity} ${ing.unit} ${ing.ingredient} `}</label>
                             
                             </div>
