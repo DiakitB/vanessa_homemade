@@ -6,6 +6,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import styled from "styled-components";
 import { getRecipeObject } from "../reducers/recipeSlice";
 import { useForm } from "react-hook-form";
+import { AddedToCart } from "../services/ShopingCart";
 const Image = styled.img`
      width: 330px;
  height: 220px;
@@ -35,18 +36,22 @@ console.log(recipe)
         onSuccess: () => alert("recipe uloaded successfully"),
       
     })
+    const { mutate:addeNewItem, isloading: isAddingItem, } = useMutation({
+        mutationFn: AddedToCart,
+        onSuccess: () => alert("item added successfully"),
+      
+    })
    
    
-    const { register, handleSubmit, reset, formState } = useForm();
+    // const { register, handleSubmit, reset, formState } = useForm();
 
     if (!recipe) return
     
     const data = recipe[0]
     if (!data) return;
     const { name, image, ingredients, description , instructions} = data
-    console.log(name)
-    console.log(ingredients)
-    console.log(ingredients.quantity)
+
+
     async function testFunction() {
         const  newRecipe = {
             name: data?.name,
@@ -59,7 +64,7 @@ console.log(recipe)
     
     }
    
-    console.log(typeof (ingredients))
+
     
   const Deltat =  ingredients.map((ingre) => {
         return JSON.parse(ingre)
@@ -67,6 +72,11 @@ console.log(recipe)
 })
     function onChangeHandler(value) {
         console.log(value)
+        console.log(typeof (value))
+        const cart = value.split(" ").slice(35, 36).join("")
+        addeNewItem({cart})
+       
+   
     }
 
 
@@ -80,7 +90,7 @@ console.log(recipe)
             to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200
              dark:focus:ring-green-800 font-medium 
             rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2"onClick={() => navigate("/recipes")} >Back</button>
-            <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200
+            <button type="button" className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200
              dark:focus:ring-green-800 font-medium rounded-lg 
             text-sm px-5 py-2.5 text-center me-2 mb-2"onClick={testFunction}>Book Mark</button>
             
@@ -106,7 +116,7 @@ console.log(recipe)
                         </>
                         
                     })}
-                <button>Submit</button>
+                <button onClick={()=>navigate("/cart")}>Submit</button>
         </div>
             <div>
 

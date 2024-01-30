@@ -12,6 +12,7 @@ import UploadSuccess from "./ui/UploadSuccess";
 // import Header from "./ui/Sidebar";
 import RecipeCooking from "./features/RecipeCooking";
 import RecipeResume from "./ui/RecipeResume";
+import CartPage from "./pages/CartPage";
 
 
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="success" element={<UploadSuccess/>} />
             <Route path="cooking" element={<RecipeCooking/>} />
             <Route path="recipe_resume" element={<RecipeResume/>} />
+            <Route path="cart" element={<CartPage/>} />
             
 
         </Route>
