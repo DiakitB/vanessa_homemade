@@ -35,6 +35,11 @@ function MainNav() {
             Add  Recipe
           </StyledLink>
         </li>
+        <li  className='shadow-lg shadow-indigo-500/40 '> 
+          <StyledLink to="/cart">
+            Go to cart
+          </StyledLink>
+        </li>
     
         <SortOperation/>
         

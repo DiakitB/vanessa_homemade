@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { getRecipeObject } from "../reducers/recipeSlice";
 import { useForm } from "react-hook-form";
 import { AddedToCart } from "../services/ShopingCart";
+import { useState } from "react";
 const Image = styled.img`
      width: 330px;
  height: 220px;
@@ -23,13 +24,13 @@ const Dive = styled.div`
 
 function Ingredient() {
     const recipe = useSelector(state => state.recipe.recipe)
-    
+   const[cheched, setChecked] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch()
 console.log(recipe)
     ////
     
-
+console.log(cheched)
     const queryClient = useQueryClient()
     const { mutate, isloading, } = useMutation({
         mutationFn: postBookMar,
@@ -69,18 +70,29 @@ console.log(recipe)
   const Deltat =  ingredients.map((ingre) => {
         return JSON.parse(ingre)
        
-})
+  })
+    const cartItems = []
     function onChangeHandler(value) {
+        let filterCart;
         console.log(value)
         console.log(typeof (value))
         const cart = value.split(" ").slice(35, 36).join("")
-        addeNewItem({cart})
-       
-   
+        if (cartItems.indexOf(cart) != -1) {
+           cartItems.splice(cartItems.indexOf(cart), 1)
+        } else {
+            cartItems.push(cart)
+       }
+    console.log(cartItems)
+      
     }
-
-
-
+    // this.array = [];
+    // selectCarouselItem(itemToAdd) {
+    //     if (this.array.indexOf(itemToAdd) != -1) {
+    //       this.array.splice(this.array.indexOf(itemToAdd), 1)
+    //     } else {
+    //       this.array.push(itemToAdd);
+    //     }
+    // }
 
 
     return <div className="flex flex-col  justify-center gap-2 px-8">
@@ -116,7 +128,7 @@ console.log(recipe)
                         </>
                         
                     })}
-                <button onClick={()=>navigate("/cart")}>Submit</button>
+                <button onClick={()=>addeNewItem(cartItems)}>Submit</button>
         </div>
             <div>
 
