@@ -27,18 +27,12 @@ export async function AddedToCart(item) {
    console.log(item)
 
    
+// const { data, error } = await supabase
+// .from('ShopingCart')
+// .update({ other_column: 'otherValue' })
+// .eq('some_column', 'someValue')
+// .select()
 
-
-   const { data, error } = await supabase
-   .from('ShopingCart')
-   .update({ cart: [ ...item] })
- 
-   .select()
- 
-
- 
-
-  
     
         if (error) {
             console.error(error);

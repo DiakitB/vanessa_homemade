@@ -1,13 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import Button from "../ui/Button";
+
 import { NavLink, useNavigate } from "react-router-dom";
 import { postBookMar } from "../services/BookMarkApi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import styled from "styled-components";
 import { getRecipeObject } from "../reducers/recipeSlice";
-import { useForm } from "react-hook-form";
 import { AddedToCart } from "../services/ShopingCart";
 import { useState } from "react";
+import { getCarts } from "../reducers/shoppingListSlice";
+
+
+
 const Image = styled.img`
      width: 330px;
  height: 220px;
@@ -73,7 +76,7 @@ console.log(cheched)
   })
     const cartItems = []
     function onChangeHandler(value) {
-        let filterCart;
+       
         console.log(value)
         console.log(typeof (value))
         const cart = value.split(" ").slice(35, 36).join("")
@@ -128,7 +131,7 @@ console.log(cheched)
                         </>
                         
                     })}
-                <button onClick={()=>addeNewItem(cartItems)}>Submit</button>
+                <button onClick={()=>dispatch(getCarts(cartItems))}>Submit</button>
         </div>
             <div>
 
