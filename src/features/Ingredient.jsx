@@ -27,24 +27,26 @@ const Dive = styled.div`
 
 function Ingredient() {
     const recipe = useSelector(state => state.recipe.recipe)
+    const cartLts = useSelector(state => state.cart.cart)
    const[cheched, setChecked] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch()
-console.log(recipe)
+
     ////
     
-console.log(cheched)
+if(cartLts)console.log(cartLts)
     const queryClient = useQueryClient()
     const { mutate, isloading, } = useMutation({
         mutationFn: postBookMar,
         onSuccess: () => alert("recipe uloaded successfully"),
+
       
     })
-    const { mutate:addeNewItem, isloading: isAddingItem, } = useMutation({
-        mutationFn: AddedToCart,
-        onSuccess: () => alert("item added successfully"),
+    // const { mutate:addeNewItem, isloading: isAddingItem, } = useMutation({
+    //     mutationFn: AddedToCart,
+    //     onSuccess: () => alert("item added successfully"),
       
-    })
+    // })
    
    
     // const { register, handleSubmit, reset, formState } = useForm();
@@ -78,13 +80,10 @@ console.log(cheched)
     function onChangeHandler(value) {
        
         console.log(value)
-        console.log(typeof (value))
+       
         const cart = value.split(" ").slice(35, 36).join("")
-        if (cartItems.indexOf(cart) != -1) {
-           cartItems.splice(cartItems.indexOf(cart), 1)
-        } else {
-            cartItems.push(cart)
-       }
+        console.log(cart)
+    dispatch(getCarts(cart))
     console.log(cartItems)
       
     }
@@ -131,7 +130,7 @@ console.log(cheched)
                         </>
                         
                     })}
-                <button onClick={()=>dispatch(getCarts(cartItems))}>Submit</button>
+                <button onClick={()=>AddedToCart(cartLts)}>Submit</button>
         </div>
             <div>
 

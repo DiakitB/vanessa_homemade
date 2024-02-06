@@ -18,27 +18,27 @@ let { data, error } = await supabase
             console.error(error);
             throw new Error("Cart data couldnt be loaded");
         }
-         console.log(data);
+        
         return data;
     }
 
 
 export async function AddedToCart(item) {
-   console.log(item)
+  
 
-   
-// const { data, error } = await supabase
-// .from('ShopingCart')
-// .update({ other_column: 'otherValue' })
-// .eq('some_column', 'someValue')
-// .select()
+   console.log(item)
+const { data, error } = await supabase
+.from('ShopingCart')
+.update({ cart: [...item ]})
+.eq('id', 1)
+.select()
 
     
         if (error) {
             console.error(error);
             throw new Error("Cart data couldnt be loaded");
         }
-         console.log(data);
+      
         return data;
     }
 

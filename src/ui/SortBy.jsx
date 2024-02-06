@@ -48,10 +48,10 @@ export default function SortBy({ options, value, ...props }) {
 
 const[selectedValue, setSelectedValue] = useState("")
 const [searchParams, setSearchParam] = useSearchParams()
-  console.log(selectedValue)
+  
   useEffect(function () { 
 
-   console.log(selectedValue)
+  
     searchParams.set("sort", selectedValue)
     setSearchParam(searchParams)
   },[selectedValue])

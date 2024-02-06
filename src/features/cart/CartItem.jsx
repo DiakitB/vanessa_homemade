@@ -1,5 +1,8 @@
 export default function CartItem({ item }) {
+    console.log(item)
     return <div>
-        <h1>Hello from cart item</h1>
+        {item?.map(it => <div className="flex flex-cols">
+            <h4>{it }</h4>
+        </div>)}
     </div>
 }

@@ -12,6 +12,7 @@ const  shoppingListSlice = createSlice({
     reducers: {
        
         getCarts(state, action) {
+         
             return {...state, cart:[...state.cart, action.payload]}
             
         }
