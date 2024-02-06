@@ -1,8 +1,8 @@
 export default function CartItem({ item }) {
     console.log(item)
+ console.log(typeof(item))
+ 
     return <div>
-        {item?.map(it => <div className="flex flex-cols">
-            <h4>{it }</h4>
-        </div>)}
+       <h1>Hello </h1>
     </div>
 }
