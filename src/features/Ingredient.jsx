@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import { postBookMar } from "../services/BookMarkApi";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import styled from "styled-components";
 import { getRecipeObject } from "../reducers/recipeSlice";
-import { AddedToCart } from "../services/ShopingCart";
+import { AddedToCart, getCart } from "../services/ShopingCart";
 import { useState } from "react";
 import { getCarts } from "../reducers/shoppingListSlice";
 
@@ -32,9 +32,8 @@ function Ingredient() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    ////
-    
-if(cartLts)console.log(cartLts)
+
+
     const queryClient = useQueryClient()
     const { mutate, isloading, } = useMutation({
         mutationFn: postBookMar,
@@ -42,14 +41,7 @@ if(cartLts)console.log(cartLts)
 
       
     })
-    // const { mutate:addeNewItem, isloading: isAddingItem, } = useMutation({
-    //     mutationFn: AddedToCart,
-    //     onSuccess: () => alert("item added successfully"),
-      
-    // })
-   
-   
-    // const { register, handleSubmit, reset, formState } = useForm();
+    
 
     if (!recipe) return
     
@@ -76,25 +68,18 @@ if(cartLts)console.log(cartLts)
         return JSON.parse(ingre)
        
   })
-    const cartItems = []
+   
     function onChangeHandler(value) {
        
         console.log(value)
        
         const cart = value.split(" ").slice(35, 36).join("")
-        console.log(cart)
-    dispatch(getCarts(cart))
-    console.log(cartItems)
+        dispatch(getCarts(cart))
+ 
+    
       
     }
-    // this.array = [];
-    // selectCarouselItem(itemToAdd) {
-    //     if (this.array.indexOf(itemToAdd) != -1) {
-    //       this.array.splice(this.array.indexOf(itemToAdd), 1)
-    //     } else {
-    //       this.array.push(itemToAdd);
-    //     }
-    // }
+
 
 
     return <div className="flex flex-col  justify-center gap-2 px-8">
@@ -130,7 +115,11 @@ if(cartLts)console.log(cartLts)
                         </>
                         
                     })}
-                <button onClick={()=>AddedToCart(cartLts)}>Submit</button>
+                
+
+
+                <button type="button"  className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-lg
+         px-5 py-2.5 text-center me-2 mb-2" onClick={() => { AddedToCart(cartLts); navigate('/recipes') }}>Add</button>
         </div>
             <div>
 
