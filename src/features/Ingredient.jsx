@@ -47,7 +47,7 @@ function Ingredient() {
     
     const data = recipe[0]
     if (!data) return;
-    const { name, image, ingredients, description , instructions} = data
+    const { name, image, ingredients} = data
 
 
     async function testFunction() {
