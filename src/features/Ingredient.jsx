@@ -74,7 +74,7 @@ function Ingredient() {
         console.log(value)
        
         const cart = value.split(" ").slice(35, 36).join("")
-        dispatch(getCarts(cart))
+      dispatch(getCarts(cart))
  
     
       
@@ -107,7 +107,7 @@ function Ingredient() {
                             <div>
                                 
                                 <input type="checkbox" labe={ing.ingredient} value={`${index + 1})
-                                 ${ing.quantity} ${ing.unit} ${ing.ingredient} `} onChange={ (e)=>onChangeHandler(e.target.value)} />
+                                 ${ing.quantity} ${ing.unit} ${ing.ingredient} `} onChange={ (e)=>{onChangeHandler(e.target.value),(check)=> setChecked(!check)}} />
                             <label > {`${index + 1}) ${ing.quantity} ${ing.unit} ${ing.ingredient} `}</label>
                             
                             </div>

@@ -13,13 +13,14 @@ const  shoppingListSlice = createSlice({
        
         getCarts(state, action) {
           
-      if(state.cart.includes(action.payload)){
-          console.log(`${action.payload} is in the state already boddy`)
-          return {...state, cart: state.cart.filter(elem => elem !==action.payload)}
-      } else { 
-          
+      if(!state.cart.includes(action.payload)){
           
           return {...state, cart:[...state.cart, action.payload]}
+      } else { 
+          alert(`${action.payload} is already in the cart`)
+          return{...state, cart:[...state.cart]}
+          
+         
         }
             
         }
