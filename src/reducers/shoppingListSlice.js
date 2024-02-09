@@ -17,7 +17,7 @@ const  shoppingListSlice = createSlice({
           
           return {...state, cart:[...state.cart, action.payload]}
       } else { 
-          alert(`${action.payload} is already in the cart`)
+         
           return{...state, cart:[...state.cart]}
           
          

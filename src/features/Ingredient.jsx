@@ -107,7 +107,7 @@ function Ingredient() {
                             <div>
                                 
                                 <input type="checkbox" labe={ing.ingredient} value={`${index + 1})
-                                 ${ing.quantity} ${ing.unit} ${ing.ingredient} `} onChange={ (e)=>{onChangeHandler(e.target.value),(check)=> setChecked(!check)}} />
+                                 ${ing.quantity} ${ing.unit} ${ing.ingredient} `} onChange={(e) => { onChangeHandler(e.target.value) }} />
                             <label > {`${index + 1}) ${ing.quantity} ${ing.unit} ${ing.ingredient} `}</label>
                             
                             </div>
