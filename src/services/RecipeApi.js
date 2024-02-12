@@ -16,12 +16,12 @@ const { data, error } = await supabase
 
 
 export async function getRecipeIngredient(id) {
-    console.log(id)
+  
 const { data, error } = await supabase
 .from('RecipeTable')
         .select()
     .eq("id", id)
-    console.log(data)
+ 
     return data;
 
 }

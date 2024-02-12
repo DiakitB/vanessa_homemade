@@ -104,7 +104,7 @@ function Ingredient() {
         <div>
                     {Deltat?.map((ing, index) => {
                         return <>
-                            <div>
+                            <div key={ing.id}>
                                 
                                 <input type="checkbox" labe={ing.ingredient} value={`${index + 1})
                                  ${ing.quantity} ${ing.unit} ${ing.ingredient} `} onChange={(e) => { onChangeHandler(e.target.value) }} />

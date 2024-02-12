@@ -17,22 +17,27 @@ const  shoppingListSlice = createSlice({
           
           return {...state, cart:[...state.cart, action.payload]}
       } else { 
-         
+         alert(`${payload.action} is already in the cart`)
           return{...state, cart:[...state.cart]}
           
          
         }
             
-        }
-      
+        },
+        deletItemInTheCart(state, action) {
+            console.log("texting delet action")
+           console.log(action.payload)
+          
+                console.log("executing")
+            return{...state, cart:sta.cart.filter(eleme =>eleme !==action.payload)}
+            
+      }
        
         
     }
 })
-export const { getCarts } = shoppingListSlice.actions
-export function theManipulator() {
-    
-}
+export const { getCarts , deletItemInTheCart} = shoppingListSlice.actions
+console.log(shoppingListSlice.reducer)
 export default shoppingListSlice.reducer;
 
 

@@ -23,25 +23,50 @@ let { data, error } = await supabase
     }
 
 
-export async function AddedToCart(item) {
-  
+    
+    export async function AddedToCart(item) {
+      
+    
+       console.log(item)
+    const { data, error } = await supabase
+    .from('ShopingCart')
+    .update({ cart: [...item ]})
+    .eq('id', 1)
+    .select()
+    
+        
+            if (error) {
+                console.error(error);
+                throw new Error("Cart data couldnt be loaded");
+            }
+          
+            return data;
+        }
+    export async function DeleteCartItem(item) {
+      console.log(item)
+       const oldData = await getCart()
+       const[cart] = oldData;
+        console.log(cart.cart)
+        
+        const mutatedList = cart.cart?.filter(obj => obj !==item)
+console.log(mutatedList)
 
-   console.log(item)
+console.log(item)
 const { data, error } = await supabase
 .from('ShopingCart')
-.update({ cart: [...item ]})
+.update({ cart: [...mutatedList]})
 .eq('id', 1)
 .select()
 
-    
-        if (error) {
-            console.error(error);
-            throw new Error("Cart data couldnt be loaded");
-        }
-      
-        return data;
-    }
 
+if (error) {
+    console.error(error);
+    throw new Error("Cart data couldnt be loaded");
+}
+
+return data;
+      
+        }
     
 // const { error } = await supabase
 // .from('Cart')

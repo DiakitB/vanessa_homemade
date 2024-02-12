@@ -12,11 +12,12 @@ const bookMarkSlice = createSlice({
        
         getBookMarkObject(state, action) {
             state.bookmark = action.payload
-            console.log(action.payload)
+            
         }
        
         
     }
 })
 export const { getBookMarkObject } = bookMarkSlice.actions
+console.log(bookMarkSlice)
 export default bookMarkSlice.reducer;

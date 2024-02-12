@@ -9,13 +9,14 @@ export default function Cart() {
         queryKey: ["cart"],
         queryFn: getCart,
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["recipes"] })
+            queryClient.invalidateQueries({ queryKey: ["cart"] })
             reset();
         }
    })
-if(isLoading)<Spinner/>
+    if (isLoading) <Spinner />
+    console.log(data)
     const list = data
-    return <div>
+    return <div className="grid-cols-4">
         <CartItem item={list}/>
     </div>
 }
